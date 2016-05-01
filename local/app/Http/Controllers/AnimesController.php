@@ -2,15 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Anime;
 use App\Genre;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Input;
 
 class AnimesController extends Controller
 {
     public function index(){
-        return view('animes.index');
+        $animes = Anime::select(DB::raw('animes.*'))
+            ->orderBy('created_at', 'desc')->get();
+        return view('animes.index',compact('animes'));
     }
 
     public function create(){
@@ -19,6 +24,53 @@ class AnimesController extends Controller
     }
 
     public function store(Request $request){
+       // dd($request->all());
 
+        $nom = ucwords($request->get('nom'));
+        $genres = implode(',',$request->get('idgenre'));
+      //  $annee =intval($request->get('annee'));
+        $annee =(int)$request->get('annee');
+        //dd(is_int($annee));
+        if (Input::hasFile('imgAnime')) {
+            $imgName = Input::file('imgAnime')->getClientOriginalName();
+            Input::file('imgAnime')->move('images/imgAnime', $imgName);
+            if (Input::hasFile('logo')) {
+                $imgNameBis = Input::file('logo')->getClientOriginalName();
+                Input::file('logo')->move('images/logo', $imgNameBis);
+            }
+            else{
+                $imgNameBis='troll2.png';
+            }
+            if (Anime::create(['nom' => $nom, 'nb_ep' =>$request->get('nb_ep'), 'synopsis' => $request->get('synopsis'), 'imgAnime' => $imgName, 'logo' => $imgNameBis,'op'=> "",'idgenre'=> $genres,'annee'=>$annee,'statut'=>$request->get('statut')])) {
+
+
+                    return redirect(route('animes.index'));
+                } else {
+                    return redirect(route('animes.create'))->withInput();
+                }
+
+        } else {
+            $imgName = 'troll.png';
+            if (Input::hasFile('logo')) {
+                $imgNameBis = Input::file('logo')->getClientOriginalName();
+                Input::file('logo')->move('images/logo', $imgNameBis);
+            }
+            else{
+                $imgNameBis='troll2.png';
+            }
+            if (Anime::create(['nom' => $nom, 'nb_ep' =>$request->get('nb_ep'), 'synopsis' => $request->get('synopsis'), 'imgAnime' => $imgName, 'logo' => $imgNameBis,'op'=> "",'idgenre'=> $genres,'annee'=>$annee,'statut'=>$request->get('statut')])) {
+
+                return redirect(route('animes.index'));
+            } else {
+                return redirect(route('animes.create'))->withInput();
+
+            }
+        }
+
+    }
+
+    public function show($id){
+        $anime = Anime::findOrFail($id);
+        return(view('animes.show',compact('anime')));
     }
 }

@@ -2,18 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="70946d21-c2ac-4e3a-8a67-7b93a6c603f6" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/local/resources/views/animes/create.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/local/resources/views/animes/index.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/local/resources/views/genres/create.blade.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/local/resources/views/animes/show.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/local/app/Anime.php" afterPath="$PROJECT_DIR$/local/app/Anime.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/local/app/Http/Controllers/AnimesController.php" afterPath="$PROJECT_DIR$/local/app/Http/Controllers/AnimesController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/local/app/Http/Controllers/GenresController.php" afterPath="$PROJECT_DIR$/local/app/Http/Controllers/GenresController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/local/app/Http/routes.php" afterPath="$PROJECT_DIR$/local/app/Http/routes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/local/bootstrap/autoload.php" afterPath="$PROJECT_DIR$/local/bootstrap/autoload.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/local/database/migrations/2016_05_01_121047_create_table_animes.php" afterPath="$PROJECT_DIR$/local/database/migrations/2016_05_01_121047_create_table_animes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/local/database/migrations/2016_05_01_125123_create_table_genres.php" afterPath="$PROJECT_DIR$/local/database/migrations/2016_05_01_125123_create_table_genres.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/local/database/migrations/2016_05_01_125353_create_table_persos.php" afterPath="$PROJECT_DIR$/local/database/migrations/2016_05_01_125353_create_table_persos.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/local/resources/views/auth/login.blade.php" afterPath="$PROJECT_DIR$/local/resources/views/auth/login.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/local/resources/views/animes/create.blade.php" afterPath="$PROJECT_DIR$/local/resources/views/animes/create.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/local/resources/views/animes/index.blade.php" afterPath="$PROJECT_DIR$/local/resources/views/animes/index.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/local/resources/views/defaut.blade.php" afterPath="$PROJECT_DIR$/local/resources/views/defaut.blade.php" />
     </list>
     <ignored path="jeumanga.iws" />
@@ -36,11 +31,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="defaut.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/local/resources/views/defaut.blade.php">
+      <file leaf-file-name="Anime.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/local/app/Anime.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-21.884615">
-              <caret line="58" column="24" selection-start-line="58" selection-start-column="24" selection-end-line="58" selection-end-column="24" />
+            <state vertical-scroll-proportion="-5.230769">
+              <caret line="8" column="103" selection-start-line="8" selection-start-column="103" selection-end-line="8" selection-end-column="103" />
               <folding />
             </state>
           </provider>
@@ -49,8 +44,8 @@
       <file leaf-file-name="2016_05_01_121047_create_table_animes.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/local/database/migrations/2016_05_01_121047_create_table_animes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-15.038462">
-              <caret line="25" column="37" selection-start-line="25" selection-start-column="37" selection-end-line="25" selection-end-column="37" />
+            <state vertical-scroll-proportion="-7.8461537">
+              <caret line="14" column="5" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -59,8 +54,8 @@
       <file leaf-file-name="AnimesController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/local/app/Http/Controllers/AnimesController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-15.692307">
-              <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+            <state vertical-scroll-proportion="-25.807692">
+              <caret line="68" column="0" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
               <folding>
                 <element signature="e#40#54#0#PHP" expanded="true" />
               </folding>
@@ -68,16 +63,26 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="show.blade.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/local/resources/views/animes/show.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.15246637">
+              <caret line="8" column="11" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="create.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/local/resources/views/animes/create.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.5">
-              <caret line="13" column="41" selection-start-line="13" selection-start-column="41" selection-end-line="13" selection-end-column="41" />
+            <state vertical-scroll-proportion="2.9615386">
+              <caret line="28" column="14" selection-start-line="28" selection-start-column="14" selection-end-line="28" selection-end-column="14" />
               <folding>
-                <element signature="e#3398#3440#0#HTML" expanded="true" />
-                <element signature="e#3513#3533#0#HTML" expanded="true" />
-                <element signature="e#4012#4054#0#HTML" expanded="true" />
-                <element signature="e#4126#4146#0#HTML" expanded="true" />
+                <element signature="e#3451#3493#0#HTML" expanded="true" />
+                <element signature="e#3566#3586#0#HTML" expanded="true" />
+                <element signature="e#4065#4107#0#HTML" expanded="true" />
+                <element signature="e#4179#4199#0#HTML" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -86,29 +91,29 @@
       <file leaf-file-name="index.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/local/resources/views/animes/index.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.6153846">
-              <caret line="4" column="94" selection-start-line="4" selection-start-column="3" selection-end-line="4" selection-end-column="94" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/local/app/Http/routes.php">
-          <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="-12.423077">
-              <caret line="19" column="31" selection-start-line="19" selection-start-column="31" selection-end-line="19" selection-end-column="31" />
+              <caret line="19" column="18" selection-start-line="17" selection-start-column="11" selection-end-line="19" selection-end-column="18" />
               <folding>
-                <element signature="e#7#392#0#PHP" expanded="true" />
+                <element signature="e#402#448#0#HTML" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GenresController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="defaut.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/local/resources/views/defaut.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-15.038462">
+              <caret line="23" column="87" selection-start-line="23" selection-start-column="87" selection-end-line="23" selection-end-column="87" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GenresController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/local/app/Http/Controllers/GenresController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4383408">
+            <state vertical-scroll-proportion="-15.038462">
               <caret line="23" column="5" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
               <folding>
                 <element signature="e#40#54#0#PHP" expanded="true" />
@@ -137,16 +142,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="create.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/local/resources/views/genres/create.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.461538">
-              <caret line="16" column="59" selection-start-line="16" selection-start-column="59" selection-end-line="16" selection-end-column="59" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="Git.Settings">
@@ -156,7 +151,6 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/local/.env" />
-        <option value="$PROJECT_DIR$/local/app/Anime.php" />
         <option value="$PROJECT_DIR$/local/composer.json" />
         <option value="$PROJECT_DIR$/local/config/app.php" />
         <option value="$PROJECT_DIR$/local/resources/views/welcome.blade.php" />
@@ -165,16 +159,18 @@
         <option value="$PROJECT_DIR$/local/app/Http/Controllers/Auth/AuthController.php" />
         <option value="$PROJECT_DIR$/local/vendor/laravel/framework/src/Illuminate/Foundation/Auth/AuthenticatesUsers.php" />
         <option value="$PROJECT_DIR$/local/resources/views/auth/login.blade.php" />
-        <option value="$PROJECT_DIR$/local/resources/views/animes/index.blade.php" />
-        <option value="$PROJECT_DIR$/local/app/Http/Controllers/AnimesController.php" />
-        <option value="$PROJECT_DIR$/local/resources/views/defaut.blade.php" />
-        <option value="$PROJECT_DIR$/local/database/migrations/2016_05_01_121047_create_table_animes.php" />
-        <option value="$PROJECT_DIR$/local/resources/views/animes/create.blade.php" />
         <option value="$PROJECT_DIR$/local/app/Http/routes.php" />
         <option value="$PROJECT_DIR$/local/resources/views/genres/create.blade.php" />
         <option value="$PROJECT_DIR$/local/database/migrations/2016_05_01_125123_create_table_genres.php" />
         <option value="$PROJECT_DIR$/local/database/migrations/2016_05_01_125353_create_table_persos.php" />
         <option value="$PROJECT_DIR$/local/app/Http/Controllers/GenresController.php" />
+        <option value="$PROJECT_DIR$/local/resources/views/animes/create.blade.php" />
+        <option value="$PROJECT_DIR$/local/database/migrations/2016_05_01_121047_create_table_animes.php" />
+        <option value="$PROJECT_DIR$/local/app/Anime.php" />
+        <option value="$PROJECT_DIR$/local/resources/views/defaut.blade.php" />
+        <option value="$PROJECT_DIR$/local/resources/views/animes/index.blade.php" />
+        <option value="$PROJECT_DIR$/local/app/Http/Controllers/AnimesController.php" />
+        <option value="$PROJECT_DIR$/local/resources/views/animes/show.blade.php" />
       </list>
     </option>
   </component>
@@ -559,7 +555,7 @@
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980973" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -664,14 +660,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/local/app/Anime.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.5384617">
-          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/local/resources/views/home.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -736,41 +724,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/local/resources/views/defaut.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-21.884615">
-          <caret line="58" column="24" selection-start-line="58" selection-start-column="24" selection-end-line="58" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/local/resources/views/animes/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.6153846">
-          <caret line="4" column="94" selection-start-line="4" selection-start-column="3" selection-end-line="4" selection-end-column="94" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/local/app/Http/routes.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-12.423077">
           <caret line="19" column="31" selection-start-line="19" selection-start-column="31" selection-end-line="19" selection-end-column="31" />
           <folding>
-            <element signature="e#7#392#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/local/resources/views/animes/create.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.5">
-          <caret line="13" column="41" selection-start-line="13" selection-start-column="41" selection-end-line="13" selection-end-column="41" />
-          <folding>
-            <element signature="e#3398#3440#0#HTML" expanded="true" />
-            <element signature="e#3513#3533#0#HTML" expanded="true" />
-            <element signature="e#4012#4054#0#HTML" expanded="true" />
-            <element signature="e#4126#4146#0#HTML" expanded="true" />
+            <element signature="e#7#392#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -799,31 +758,78 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/local/database/migrations/2016_05_01_121047_create_table_animes.php">
+    <entry file="file://$PROJECT_DIR$/local/app/Http/Controllers/GenresController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-15.038462">
-          <caret line="25" column="37" selection-start-line="25" selection-start-column="37" selection-end-line="25" selection-end-column="37" />
+          <caret line="23" column="5" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
+          <folding>
+            <element signature="e#40#54#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/local/database/migrations/2016_05_01_121047_create_table_animes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.8461537">
+          <caret line="14" column="5" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/local/app/Anime.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.230769">
+          <caret line="8" column="103" selection-start-line="8" selection-start-column="103" selection-end-line="8" selection-end-column="103" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/local/resources/views/animes/create.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="2.9615386">
+          <caret line="28" column="14" selection-start-line="28" selection-start-column="14" selection-end-line="28" selection-end-column="14" />
+          <folding>
+            <element signature="e#3451#3493#0#HTML" expanded="true" />
+            <element signature="e#3566#3586#0#HTML" expanded="true" />
+            <element signature="e#4065#4107#0#HTML" expanded="true" />
+            <element signature="e#4179#4199#0#HTML" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/local/app/Http/Controllers/AnimesController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.692307">
-          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+        <state vertical-scroll-proportion="-25.807692">
+          <caret line="68" column="0" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
           <folding>
             <element signature="e#40#54#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/local/app/Http/Controllers/GenresController.php">
+    <entry file="file://$PROJECT_DIR$/local/resources/views/animes/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4383408">
-          <caret line="23" column="5" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
+        <state vertical-scroll-proportion="-12.423077">
+          <caret line="19" column="18" selection-start-line="17" selection-start-column="11" selection-end-line="19" selection-end-column="18" />
           <folding>
-            <element signature="e#40#54#0#PHP" expanded="true" />
+            <element signature="e#402#448#0#HTML" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/local/resources/views/defaut.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-15.038462">
+          <caret line="23" column="87" selection-start-line="23" selection-start-column="87" selection-end-line="23" selection-end-column="87" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/local/resources/views/animes/show.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.15246637">
+          <caret line="8" column="11" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
+          <folding />
         </state>
       </provider>
     </entry>

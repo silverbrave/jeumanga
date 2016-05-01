@@ -20,7 +20,7 @@
          <div class="form-group{{ $errors->has('idgenre') ? ' has-error' : '' }}">
             {!!Form::label('label', 'Genre') !!}
              <p><a class="btn btn-primary" href="{{ route('genres.create') }}">Ajouter un genre</a></p>
-             {!! Form::select('idgenre',$genres,null, ['class' => 'form-control','id'=>'idgenre']) !!}
+             {!! Form::select('idgenre[]',$genres,null, ['class' => 'form-control','id'=>'idgenre','multiple' => 'multiple']) !!}
             @if ($errors->has('idgenre'))
                 <span class="help-block">
                                         <strong>{{ $errors->first('idgenre') }}</strong>
@@ -29,7 +29,7 @@
         </div>
          <div class="form-group{{ $errors->has('statut') ? ' has-error' : '' }}">
             {!!Form::label('label', 'Statut') !!}
-             {!! Form::select('statut',['En cours','Terminer'], null, ['class' => 'form-control','id'=>'statut']) !!}
+             {!! Form::select('statut',['En cours' => 'En cours','Terminer'=>'Terminer'], null, ['class' => 'form-control','id'=>'statut']) !!}
             @if ($errors->has('statut'))
             <span class="help-block">
                 <strong>{{ $errors->first('statut') }}</strong>

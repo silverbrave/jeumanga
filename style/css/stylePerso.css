@@ -1,0 +1,12 @@
+hr{
+  height: 1px;
+  /*margin: -0.5em 0;*/
+  padding: 0;
+  color: #F00;
+  background-color: #F00;
+  border: 0;
+}
+a.lienAnimes{
+	color:white;
+	/*text-decoration:none;*/
+}

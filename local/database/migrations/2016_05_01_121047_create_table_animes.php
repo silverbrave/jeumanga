@@ -21,8 +21,8 @@ class CreateTableAnimes extends Migration
             $table->string('imgAnime');
             $table->string('logo');
             $table->string('op');
-            $table->integer('idgenre');
-            $table->date('annee');
+            $table->string('idgenre');
+            $table->string('annee');
             $table->string('statut');
             $table->timestamps();
         });
