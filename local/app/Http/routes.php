@@ -16,5 +16,8 @@ Route::get('/', function () {
 });
 
 Route::auth();
+Route::resource('animes','AnimesController');
+Route::resource('genres','GenresController');
 
-Route::get('/home', 'HomeController@index');
+//Route::get('/home', 'HomeController@index');
+

@@ -20,6 +20,7 @@ class CreateTablePersos extends Migration
             $table->string('prenom');
             $table->longText('desc');
             $table->string('img');
+            $table->timestamps();
         });
     }
 

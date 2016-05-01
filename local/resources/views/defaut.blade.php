@@ -48,19 +48,20 @@
             <ul class="nav navbar-nav">
 
                 @if(Illuminate\Support\Facades\Auth::check())
-                 <li>
-                    <a href="{{url('/logout')}}">Se deconnecter</a>
-                </li>
+                    <li>
+                        <a href="{{url('/logout')}}">Se deconnecter</a>
+                    </li>
+
                 @else
                     <li>
                         <a href="{{url('/login')}}">Se connecter</a>
                     </li>
+                    <li>
+                        <a href="{{url('/register')}}">Register</a>
+                    </li>
                 @endif
                 <li>
-                    <a href="{{url('/register')}}">Register</a>
-                </li>
-                <li>
-                    <a href="#">Contact</a>
+                    <a href="{{url('/animes')}}">Animes</a>
                 </li>
             </ul>
         </div>
@@ -71,18 +72,15 @@
 
 <!-- Page Content -->
 <div class="container">
-    <div class="row">
-        <div class="col-lg-12">
-            <h1>Logo Nav by Start Bootstrap</h1>
-            <p>Note: You may need to adjust some CSS based on the size of your logo. The default logo size is 150x50 pixels.</p>
-        </div>
-    </div>
+    @yield('content')
+    @yield('imageActivite')
 </div>
+
 <!-- /.container -->
 
 <!-- jQuery -->
 <script src="{{url('style/js/jquery.js')}}"></script>
-
+    @yield('script')
 <!-- Bootstrap Core JavaScript -->
 <script src="{{url('style/js/bootstrap.min.js')}}"></script>
 
