@@ -13,7 +13,7 @@ class CreateTablePersos extends Migration
      */
     public function up()
     {
-        Schema::create('persos', function (Blueprint $table) {
+        Schema::create('personnages', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('idAnime');
             $table->string('nom');
@@ -31,6 +31,6 @@ class CreateTablePersos extends Migration
      */
     public function down()
     {
-        Schema::drop('persos');
+        Schema::drop('personnages');
     }
 }

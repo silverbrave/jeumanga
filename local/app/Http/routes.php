@@ -18,6 +18,7 @@ Route::get('/', function () {
 Route::auth();
 Route::resource('animes','AnimesController');
 Route::resource('genres','GenresController');
+Route::resource('personnages','PersosController');
 
 //Route::get('/home', 'HomeController@index');
 

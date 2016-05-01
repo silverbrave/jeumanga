@@ -9,12 +9,14 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Session;
 
 class AnimesController extends Controller
 {
     public function index(){
         $animes = Anime::select(DB::raw('animes.*'))
             ->orderBy('created_at', 'desc')->get();
+
         return view('animes.index',compact('animes'));
     }
 
@@ -42,8 +44,7 @@ class AnimesController extends Controller
                 $imgNameBis='troll2.png';
             }
             if (Anime::create(['nom' => $nom, 'nb_ep' =>$request->get('nb_ep'), 'synopsis' => $request->get('synopsis'), 'imgAnime' => $imgName, 'logo' => $imgNameBis,'op'=> "",'idgenre'=> $genres,'annee'=>$annee,'statut'=>$request->get('statut')])) {
-
-
+                Session::flash('flash_message', "L'Anime a bien été créé!");
                     return redirect(route('animes.index'));
                 } else {
                     return redirect(route('animes.create'))->withInput();
@@ -59,7 +60,7 @@ class AnimesController extends Controller
                 $imgNameBis='troll2.png';
             }
             if (Anime::create(['nom' => $nom, 'nb_ep' =>$request->get('nb_ep'), 'synopsis' => $request->get('synopsis'), 'imgAnime' => $imgName, 'logo' => $imgNameBis,'op'=> "",'idgenre'=> $genres,'annee'=>$annee,'statut'=>$request->get('statut')])) {
-
+                Session::flash('flash_message', "L'Anime a bien été créé!");
                 return redirect(route('animes.index'));
             } else {
                 return redirect(route('animes.create'))->withInput();
@@ -71,6 +72,16 @@ class AnimesController extends Controller
 
     public function show($id){
         $anime = Anime::findOrFail($id);
-        return(view('animes.show',compact('anime')));
+        $persos = DB::table('personnages')->where('idAnime',$id)->get();
+        return(view('animes.show',compact('anime','persos')));
+    }
+
+    public function destroy($id)
+    {
+        $anime = Anime::findOrFail($id);
+        $anime->delete();
+        Session::flash('flash_message', "L'Anime a bien été supprimé!");
+        return redirect(route('animes.index'));
+
     }
 }

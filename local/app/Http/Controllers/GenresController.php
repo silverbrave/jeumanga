@@ -14,7 +14,7 @@ class GenresController extends Controller
     }
 
     public function store(Request $request ){
-        $nom = ucfirst($request->get('nom'));
+        $nom = ucwords($request->get('nom'));
         if(Genre::create(['nom'=>$nom])){
             return redirect(route('animes.create'));
         }
