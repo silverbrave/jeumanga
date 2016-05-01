@@ -4,7 +4,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTableAnimes extends Migration
+class CreateTablePersos extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,13 @@ class CreateTableAnimes extends Migration
      */
     public function up()
     {
-        Schema::create('animes', function (Blueprint $table) {
+        Schema::create('persos', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('idAnime');
             $table->string('nom');
-            $table->integer('nb_ep');
-            $table->longText('synopsis');
-            $table->string('imgAnime');
-            $table->string('logo');
-            $table->string('op');
-            $table->integer('idgenre');
-            $table->timestamps();
+            $table->string('prenom');
+            $table->longText('desc');
+            $table->string('img');
         });
     }
 
@@ -33,6 +30,6 @@ class CreateTableAnimes extends Migration
      */
     public function down()
     {
-        Schema::drop('animes');
+        Schema::drop('persos');
     }
 }
