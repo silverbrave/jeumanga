@@ -28,7 +28,7 @@
         </div>
         <div class="row">
             <div class="col-md-6">
-                <img src="{{url('images/imgAnime/'.$anime->imgAnime)}}" alt="" class="img-responsive">
+                <a href="{{url('animes/'.$anime->id)}}" class="lienAnimes"><img src="{{url('images/imgAnime/'.$anime->imgAnime)}}" alt="" class="img-responsive"></a>
             </div>
             <div class="col-md-6">
 

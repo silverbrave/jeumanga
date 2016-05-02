@@ -19,6 +19,8 @@ Route::auth();
 Route::resource('animes','AnimesController');
 Route::resource('genres','GenresController');
 Route::resource('personnages','PersosController');
+Route::get('quizPersos',['uses'=>'JeuController@index','as'=>'indexJeuPerso']);
+Route::post('quizPersos/',['as'=>'verif','uses'=>'JeuController@verifNom']);
 
 //Route::get('/home', 'HomeController@index');
 

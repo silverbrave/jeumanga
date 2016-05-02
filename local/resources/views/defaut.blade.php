@@ -39,7 +39,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="{{url('/')}}">
                 <img src="http://placehold.it/150x50&text=Logo" alt="">
             </a>
         </div>
@@ -62,6 +62,9 @@
                 @endif
                 <li>
                     <a href="{{url('/animes')}}">Animes</a>
+                </li>
+            <li>
+                    <a href="{{url('/quizPersos')}}">Quiz Personnages</a>
                 </li>
             </ul>
         </div>
