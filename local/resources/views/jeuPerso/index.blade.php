@@ -45,21 +45,22 @@
 @section('script')
     <script type="text/javascript">
         $(document).ready(function() {
-
+            var nomF= "{{$perso['nom']}}";
+            var prenomF= "{{$perso['prenom']}}";
             $('#formPerso').on('submit',function(e){
 
                 var score = $('#valScore').text();
                 var vie = $('#valVie').text();
-
+//le probleme est ici vu qu'on utilise les var pghp
                 var nomPersoRentre = $('#nom').val();
                 nomPersoRentre = nomPersoRentre.toLowerCase();
                 console.log('nom du perso rentre : '+nomPersoRentre);
 
-                var nomRef = "{{$perso['nom']}}";
+                var nomRef = nomF;
                 nomRef = nomRef.toLowerCase();
                 console.log('nom du peros ref : '+nomRef);
 
-                 var prenomRef = "{{$perso['prenom']}}";
+                 var prenomRef = prenomF;
                 prenomRef= prenomRef.toLowerCase();
                 console.log('prenom du peros ref : '+prenomRef);
 
@@ -93,6 +94,10 @@
                                 console.log('win');
                                 var anime = data['anime'];
                                 var perso = data['perso'];
+
+                                nomF=data['perso'].nom;
+                                prenomF=data['perso'].prenom;
+
                                 console.log(data['perso'].img);
                                //$('#imgAnime').src=data['anime'].imgAnime;
                                 var image = "{{url('images/persos/')}}"+'/'+data['perso'].img;
@@ -101,9 +106,15 @@
                                 score=parseInt(score);
                                 score =score+1;
                                 console.log(score);
+
+
+                                if(score===5 && vie > 0){
+                                    alert("GG, Partie terminée!");
+                                }
                                 $('#valScore').text(score);
                                 $('#msgErreur').text("Bien joué! Place au personnage suivant");
                                 $("#divform").attr("class",'form-group has-success');
+                                $('#nom').val("");
                             }
                             else{
                                 vie=parseInt(vie);
