@@ -1,6 +1,7 @@
 @extends('defaut')
 @section('css')
     <link href="{{url('style/css/jeuPerso.css')}}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.css">
 @endsection
 @section('content')
     <h1>JEU SUR LES PERSONNAGES</h1>
@@ -37,16 +38,29 @@
         <div class="col-md-3" id="score">
             <h3>Informations</h3>
             <h4>Score:</h4><p id="valScore">0</p>
-            <h4>Vies:</h4><p id="valVie">5</p>
+            <h4>Vies:</h4>
+            <div class="progress">
+                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 100%" id="barreVie">
+                    <span class="sr-only">40% Complete (success)</span>
+                    <p id="valVie">4</p>
+                </div>
+            </div>
 
+
+            <p><a href="{{url('/quizPersos')}}" class="btn btn-danger">Recommencer</a></p>
+            <div id="popupconfirmation" title="Titre de la fenêtre" class="modal-dialog modal-sm" style="display: none">
+               <p>Voulez vous recommencez la partie?</p>
+            </div>
         </div>
 @endsection
 
 @section('script')
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
             var nomF= "{{$perso['nom']}}";
             var prenomF= "{{$perso['prenom']}}";
+            $('#btnValider').prop("disabled",false);
             $('#formPerso').on('submit',function(e){
 
                 var score = $('#valScore').text();
@@ -123,6 +137,71 @@
                                 $('#valVie').text(vie);
                                 $("#divform").attr("class",'form-group has-error');
                                 $('#msgErreur').text("ce n'est pas le bon personnage");
+                                //var barre =  $('#barreVie').style;
+                                console.log('styyyyyyyylllle');
+                              console.log($('#barreVie').attr('style'));
+                                if(vie==3){
+                                    $('#barreVie').attr('style',"width:75%");
+                                }
+                                else if(vie==2){
+                                  //on passe a l'orange
+                                    $("#barreVie").attr("class","progress-bar progress-bar-warning");
+                                    $('#barreVie').attr('style',"width:50%");
+
+                                }
+                                else if(vie==1){
+                                    //on passe au rouge
+                                    $("#barreVie").attr("class","progress-bar progress-bar-danger");
+                                    $('#barreVie').attr('style',"width:25%");
+                                }
+                                else if(vie==0){
+                                    $('#btnValider').prop("disabled", true);
+                                    $('#nom').prop("disabled", true);
+                                    $('#barreVie').attr('style',"width:0");
+
+                                    // comportement du bouton devant ouvrir la boîte de dialogue
+
+                                        // cette ligne est très importante pour empêcher les liens ou les boutons de rediriger
+                                        // vers une autre page avant que l'usager ait cliqué dans le popup
+                                     // event.preventDefault();
+                                        // retrouve l'attribut href du lien sur lequel on a cliqué
+                                        var targetUrl = "{{url('/quizPersos')}}";
+                                        // on définit les boutons ici plutôt que plus haut puisqu'on a besoin de connaître l'URL de la page, qui n'était pas encore disponible sur le document.ready.
+                                      /*  $("#popupconfirmation").dialog({
+                                            buttons: [
+                                                {
+                                                    text: "Oui",
+                                                    click: function () {
+                                                        window.location.href = targetUrl;
+                                                    }
+                                                },
+                                                {
+                                                    text: "Non",
+                                                    click: function () {
+                                                        $(this).dialog("close");
+                                                    }
+                                                }
+                                            ]
+                                        });*/
+                                        // affichage du popup
+                                    $( "#popupconfirmation" ).dialog({
+                                        modal: true,
+                                        buttons: {
+                                            "Oui": function() {
+                                                window.location.href=targetUrl;
+                                                $( this ).dialog( "close" );
+                                            },
+                                            "Non": function() {
+
+                                                $( this ).dialog( "close" );
+                                            }
+                                        }
+                                    });
+                                          // alert("plus de vie");
+                                }
+                                else{
+
+                                }
                             }
                         },
                         error: function(data){
