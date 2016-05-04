@@ -18,14 +18,14 @@ class PersosController extends Controller
     }
     public function store(Request $request){
 
-
+        //dd($request->all());
         $nom = ucwords($request->get('nom'));
         $prenom = ucwords($request->get('prenom'));
         $idAnime = $request->get('idAnime');
         if (Input::hasFile('img')) {
             $imgName = Input::file('img')->getClientOriginalName();
 
-            if (Personnage::create(['idAnime'=> $idAnime,'nom' => $nom, 'prenom' => $prenom, 'img' =>$imgName,'desc' => $request->get('desc')])) {
+            if (Personnage::create(['idAnime'=> $idAnime,'nom' => $nom, 'prenom' => $prenom, 'img' =>$imgName,'desc' => $request->get('desc'),'role'=>$request->get('role')])) {
                 Input::file('img')->move('images/persos/', $imgName);
                 Session::flash('flash_message', "Le Personnage a bien été créé!");
                 return redirect(route('animes.show',$idAnime));
@@ -35,7 +35,7 @@ class PersosController extends Controller
         }
         else{
             $imgName = 'troll.png';
-            if (Personnage::create(['idAnime'=> $idAnime,'nom' => $nom, 'prenom' => $prenom, 'img' =>$imgName,'desc' => $request->get('desc')])) {
+            if (Personnage::create(['idAnime'=> $idAnime,'nom' => $nom, 'prenom' => $prenom, 'img' =>$imgName,'desc' => $request->get('desc'),'role'=>$request->get('role')])) {
                 Session::flash('flash_message', "Le Personnage a bien été créé!");
                 return redirect(route('animes.show',$idAnime));
             } else {

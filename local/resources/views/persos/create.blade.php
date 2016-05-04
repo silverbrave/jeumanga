@@ -24,9 +24,34 @@
         @endif
     </div>
     {{ Form::hidden('idAnime',$idAnime) }}
+
+    <div class="form-group{{ $errors->has('role') ? ' has-error' : '' }}">
+        {!!Form::label('label', 'Rôle ') !!}
+        <label>
+            {!!Form::radio('role', 'principal',['class'=>'radio radio-inline'])!!}
+            Principal
+        </label>
+
+        <label>
+            {!!Form::radio('role', 'secondaire',['class'=>'radio radio-inline'])!!}
+            Secondaire
+        </label>
+
+        <label>
+            {!!Form::radio('role', 'tertiaire',['class'=>'radio radio-inline'])!!}
+            Tertiaire
+        </label>
+
+        @if ($errors->has('role'))
+            <span class="help-block">
+                                        <strong>{{ $errors->first('role') }}</strong>
+                                    </span>
+        @endif
+    </div>
+
     <div class="form-group{{ $errors->has('desc') ? ' has-error' : '' }}">
         {!!Form::label('label', 'Description ') !!}
-        {!!Form::text('desc', null, ['class' => 'form-control','id' =>'desc']) !!}
+        {!!Form::textarea('desc', null, ['class' => 'form-control','id' =>'desc']) !!}
         @if ($errors->has('desc'))
             <span class="help-block">
                                         <strong>{{ $errors->first('desc') }}</strong>
