@@ -82,7 +82,10 @@ class JeuController extends Controller
             //on verifie que le nouveau perso soit different de l'ancien et que l'on ne l'a pas encore rencontré
 
             if(in_array($nouvPersoR,$this->tabPersoDejaVu)==true){
-                dd('enfin trouve in_array');
+                //dd('enfin trouve in_array');
+                //dd($this->tabPersoDejaVu);
+                //dd($this->tabPersoDejaVu);
+                //dd($this->tabPersoDejaVu);
             }
             if(array_search($perso['nom'],$this->tabPersoDejaVu)!=false && array_search($perso['prenom'],$this->tabPersoDejaVu)){
                 dd('areizo array_search1');

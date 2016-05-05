@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Logo Nav - Start Bootstrap Template</title>
+    <title>@yield('titre')</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="{{url('style/css/bootstrap.min.css')}}" rel="stylesheet">
@@ -84,6 +84,8 @@
             {{ Session::get('flash_message') }}
         </div>
     @endif
+    @yield('filAriane')
+
     @yield('content')
     @yield('imageActivite')
 </div>

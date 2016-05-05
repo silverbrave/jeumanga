@@ -73,7 +73,14 @@ class AnimesController extends Controller
     public function show($id){
         $anime = Anime::findOrFail($id);
         $persos = DB::table('personnages')->where('idAnime',$id)->get();
-        return(view('animes.show',compact('anime','persos')));
+
+        //fil d'ariane pour le moment
+        $url= $_SERVER['REQUEST_URI'];
+        $onglets = explode('/',$url);
+       $onglets= array_splice($onglets,1,count($onglets));
+      // $onglets[0]="Accueil";
+       //    dd($onglets);
+        return(view('animes.show',compact('anime','persos','onglets')));
     }
 
     public function destroy($id)
