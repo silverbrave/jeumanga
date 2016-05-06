@@ -28,12 +28,16 @@
         </div>
         <div class="row">
             <div class="col-md-6">
-                <a href="{{url('animes/'.$anime->id)}}" class="lienAnimes"><img src="{{url('images/imgAnime/'.$anime->imgAnime)}}" alt="" class="img-responsive"></a>
+                <a href="{{url('animes/'.$anime->id)}}" class="lienAnimes"><img src="{{url('images/imgAnime/'.$anime->imgAnime)}}" alt="" class="img-responsive imgAnime"></a>
             </div>
             <div class="col-md-6">
-
                 <p>Année : {{$anime->annee}}</p>
-                <p>Synopsis : <br>{{$anime->synopsis}}</p>
+                <p>Genres :
+                @foreach($toto as $genre)
+                [{{$genre}}]
+                @endforeach
+                </p>
+                <p class="synopsis">Synopsis : <br>{{$anime->synopsis}}</p>
             </div>
         </div>
         <hr>

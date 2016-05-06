@@ -10,3 +10,11 @@ a.lienAnimes{
 	color:white;
 	/*text-decoration:none;*/
 }
+
+p.synopsis{
+  text-align: justify;
+}
+img.imgAnime{
+  width:270px;
+  height:220px;
+}

@@ -66,7 +66,8 @@
                 <li class="dropdown">
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">Quiz <b class="caret"></b></a>
                     <ul class="dropdown-menu">
-                        <li><a href="{{url('/quizPersos')}}">Quiz Personnages</a></li>
+                        <li><a href="{{url('/quizPersos')}}">Quiz Personnages Random</a></li>
+                        <li><a href="{{url('/quizPersosChoix')}}">Quiz Personnages choix difficulte</a></li>
                         <li><a href="{{url('/quizLogo')}}">Quiz Logo</a></li>
                     </ul>
                 </li>

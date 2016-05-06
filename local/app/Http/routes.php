@@ -22,8 +22,9 @@ Route::resource('animes','AnimesController');
 Route::resource('genres','GenresController');
 Route::resource('personnages','PersosController');
 Route::get('quizPersos',['uses'=>'JeuController@index','as'=>'indexJeuPerso']);
+Route::get('quizPersosChoix',['uses'=>'JeuController@indexDif','as'=>'indexJeuPersoChoix']);
 Route::post('quizPersos/',['as'=>'verif','uses'=>'JeuController@verifNom']);
 Route::get('quizLogo',['uses'=>'JeuLogoController@index','as'=>'indexJeuLogo']);
 Route::post('quizLogo/',['as'=>'verifLogo','uses'=>'JeuLogoController@verifNomLogo']);
-//Route::get('/home', 'HomeController@index');
+
 

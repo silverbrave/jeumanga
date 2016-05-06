@@ -8,15 +8,42 @@
 @endsection
 @section('content')
     <h1>JEU SUR LES PERSONNAGES</h1>
-        <div class="col-md-2"></div>
+        <div class="col-md-2">
+            <h3>Difficulté</h3>
+            {!!Form::open(['route'=>'indexJeuPerso','method'=>'GET','id'=>'formDif']) !!}
+        <div class="radio">
+            <label>
+                <img src="{{url('images/persos/naruto.png')}}" alt="" class="img-circle img-responsive img-center" style="width:50px;height:50px">
+                {!!Form::radio('difficulte', 'principal',['class'=>'radio'])!!}
+                Facile
+            </label>
+        </div>
+        <div class="radio">
+            <label>
+                <img src="{{url('images/persos/eishirou.png')}}" alt="" class="img-circle img-responsive img-center" style="width:50px;height:50px">
+                {!!Form::radio('difficulte', 'secondaire',['class'=>'radio'])!!}
+                Moyen
+            </label>
+        </div>
+        <div class="radio">
+            <label>
+                <img src="{{url('images/persos/286632.jpg')}}" alt="" class="img-circle img-responsive img-center" style="width:50px;height:50px">
+                {!!Form::radio('difficulte', 'tertiaire',['class'=>'radio'])!!}
+                Hardcore
+            </label>
+        </div>
+            {!! Form::submit('Valider',['class'=>'btn btn-primary','id'=>'btnValDif'])!!}
+            {!! Form::close() !!}
+        </div>
         <div class="col-md-5" id="jeu">
             <h3>Entrez le nom ou le prénom du personnage</h3>
             <img src="{{url('images/persos/'.$perso['img'])}}" alt="" class="img-responsive" id="imgAnime" style="z-index:1">
             <img src="{{url('images/score/score++.gif')}}" alt="" style="position:absolute;z-index:999;width: 150px;display: none" class="" id="upScore">
+            <img src="{{url('images/score/vie--.gif')}}" alt="" style="position:absolute;z-index:999;width: 150px;display: none" class="" id="downVie">
             <div class="form-group" id="divform">
 
                 {!!Form::open(['route'=>'verif','method'=>'POST','id'=>'formPerso']) !!}
-                {!!Form::text('nom', null, ['class' => 'form-control','id' =>'nom']) !!}
+                {!!Form::text('nom', null, ['class' => 'form-control','id' =>'nom', 'autocomplete'=>"off" ]) !!}
                 <span class="help-block" id="msgErreur">
                         <strong></strong>
                     </span>
@@ -53,6 +80,9 @@
             <div id="popupconfirmation" title="Titre de la fenêtre" class="modal-dialog modal-sm" style="display: none">
                <p>Voulez vous recommencez la partie?</p>
             </div>
+      <div id="popupDif" title="Titre de la fenêtre" class="modal-dialog modal-sm" style="display: none">
+               <p>Choisir difficulté</p>
+            </div>
         </div>
 @endsection
 
@@ -60,10 +90,21 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
+            difficulte = $("input[name='difficulte']:checked").val();
+            $('#formDif').on('submit',function(e){
+                console.log(difficulte);
+            });
+
+
+
+
+
+
             var nomF= "{{$perso['nom']}}";
             var prenomF= "{{$perso['prenom']}}";
-            $('#btnValider').prop("disabled",true);
 
+            //a changer si on veut desactiver le bouton valider
+            $('#btnValider').prop("disabled",false);
             $('#nom').on('change',function(){
                 if($('#nom').val()===""){
                     $("#divform").attr("class",'form-group has-error');
@@ -94,7 +135,7 @@
 
                 var anime = "{{$anime['nom']}}";
                 var token = $("[name=_token]").val();
-                console.log(token);
+                //console.log(token);
                 $.ajaxSetup({
                     header:$('meta[name="_token"]').attr('content')
                 });
@@ -121,18 +162,19 @@
                                 var anime = data['anime'];
                                 var perso = data['perso'];
                                  $('#upScore').show('slow');
+                                $('#upScore').hide(500);
                                 nomF=data['perso'].nom;
                                 prenomF=data['perso'].prenom;
 
-                                console.log(data['perso'].img);
+                              //  console.log(data['perso'].img);
                                //$('#imgAnime').src=data['anime'].imgAnime;
                                 var image = "{{url('images/persos/')}}"+'/'+data['perso'].img;
-                                console.log(image);
+                               // console.log(image);
                                 $("#imgAnime").attr("src",image);
                                 score=parseInt(score);
                                 score =score+1;
-                                console.log(score);
-                                $('#upScore').hide(800);
+                                //console.log(score);
+
 
                                 if(score===5 && vie > 0){
                                     alert("GG, Partie terminée!");
@@ -144,14 +186,17 @@
                             }
                             else{
                                 vie=parseInt(vie);
+                                $('#downVie').show('slow');
+                                $('#downVie').hide(500);
                                 vie =vie-1;
-                                console.log(vie);
+                             //   console.log(vie);
                                 $('#valVie').text(vie);
                                 $("#divform").attr("class",'form-group has-error');
                                 $('#msgErreur').text("ce n'est pas le bon personnage");
                                 //var barre =  $('#barreVie').style;
-                                console.log('styyyyyyyylllle');
-                              console.log($('#barreVie').attr('style'));
+                           //     console.log('styyyyyyyylllle');
+                         //     console.log($('#barreVie').attr('style'));
+
                                 if(vie==3){
                                     $('#barreVie').attr('style',"width:75%");
                                 }

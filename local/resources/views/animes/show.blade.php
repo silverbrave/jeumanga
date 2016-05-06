@@ -19,6 +19,11 @@
         <div class="col-md-3">
             <h3>Informations</h3>
             <p>Année : {{$anime->annee}}</p>
+            <p>Genres :
+            @foreach($toto as $genre)
+                [{{$genre}}]
+            @endforeach
+            </p>
         </div>
     </div>
     <div class="row">
@@ -42,7 +47,7 @@
         @foreach($persos as $perso)
             @if($perso->role === "principal")
                 <div class="col-lg-4 col-sm-6 text-center">
-                    <img class="img-circle img-responsive img-center" src="{{url('images/persos/'.$perso->img)}}" alt="">
+                    <img class="img-circle img-responsive img-center" src="{{url('images/persos/'.$perso->img)}}" alt="" style="width:220px;height:250px;">
                     <h3>{{$perso->prenom}} {{$perso->nom}}</h3>
                     <p>{{$perso->role}}</p>
                     <p>{{$perso->desc}}</p>
@@ -66,7 +71,7 @@
         @foreach($persos as $perso)
             @if($perso->role === "secondaire")
             <div class="col-lg-4 col-sm-6 text-center">
-                <img class="img-circle img-responsive img-center" src="{{url('images/persos/'.$perso->img)}}" alt="">
+                <img class="img-circle img-responsive img-center" src="{{url('images/persos/'.$perso->img)}}" alt="" style="width:220px;height:250px;">
                 <h3>{{$perso->prenom}} {{$perso->nom}}</h3>
                 <p>{{$perso->role}}</p>
                 <p>{{$perso->desc}}</p>
@@ -90,7 +95,7 @@
         @foreach($persos as $perso)
             @if($perso->role === "tertiaire")
             <div class="col-lg-4 col-sm-6 text-center">
-                <img class="img-circle img-responsive img-center" src="{{url('images/persos/'.$perso->img)}}" alt="">
+                <img class="img-circle img-responsive img-center" src="{{url('images/persos/'.$perso->img)}}" alt="" style="width:220px;height:250px;">
                 <h3>{{$perso->prenom}} {{$perso->nom}}</h3>
                 <p>{{$perso->role}}</p>
                 <p>{{$perso->desc}}</p>

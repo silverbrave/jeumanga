@@ -16,8 +16,21 @@ class AnimesController extends Controller
     public function index(){
         $animes = Anime::select(DB::raw('animes.*'))
             ->orderBy('created_at', 'desc')->get();
+       //traitement pour les genres
+        foreach($animes as $anime){
+            $genres = $anime->idgenre;
+            $anime->idgenre =  DB::table('genres')->where('id',intval($anime->idgenre))->pluck('nom');
 
-        return view('animes.index',compact('animes'));
+            $genres = explode(',',$genres);
+            $toto =array();
+            foreach($genres as $genre){
+                $genre = DB::table('genres')->where('id',$genre)->pluck('nom');
+                $genre= implode($genre);
+                array_push($toto,$genre);
+            }
+        }
+
+        return view('animes.index',compact('animes','toto'));
     }
 
     public function create(){
@@ -80,7 +93,20 @@ class AnimesController extends Controller
        $onglets= array_splice($onglets,1,count($onglets));
       // $onglets[0]="Accueil";
        //    dd($onglets);
-        return(view('animes.show',compact('anime','persos','onglets')));
+
+        //traitements pour les differents genres d'un anime
+        $genres = $anime->idgenre;
+        $anime->idgenre =  DB::table('genres')->where('id',intval($anime->idgenre))->pluck('nom');
+
+        $genres = explode(',',$genres);
+        $toto =array();
+        foreach($genres as $genre){
+            $genre = DB::table('genres')->where('id',$genre)->pluck('nom');
+            $genre= implode($genre);
+            array_push($toto,$genre);
+        }
+
+        return(view('animes.show',compact('anime','persos','onglets','toto')));
     }
 
     public function destroy($id)
