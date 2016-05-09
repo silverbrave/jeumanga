@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="70946d21-c2ac-4e3a-8a67-7b93a6c603f6" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/local/resources/views/jeuPerso/choixDif.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/local/app/Http/Controllers/AnimesController.php" afterPath="$PROJECT_DIR$/local/app/Http/Controllers/AnimesController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/local/app/Http/Controllers/JeuController.php" afterPath="$PROJECT_DIR$/local/app/Http/Controllers/JeuController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/local/app/Http/routes.php" afterPath="$PROJECT_DIR$/local/app/Http/routes.php" />
@@ -11,7 +9,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/local/resources/views/animes/show.blade.php" afterPath="$PROJECT_DIR$/local/resources/views/animes/show.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/local/resources/views/defaut.blade.php" afterPath="$PROJECT_DIR$/local/resources/views/defaut.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/local/resources/views/jeuPerso/index.blade.php" afterPath="$PROJECT_DIR$/local/resources/views/jeuPerso/index.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/style/css/stylePerso.css" afterPath="$PROJECT_DIR$/style/css/stylePerso.css" />
     </list>
     <ignored path="jeumanga.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -32,136 +29,82 @@
     <favorites_list name="jeumanga" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5236271">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="JeuLogoController.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/local/app/Http/Controllers/JeuLogoController.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-17.653847">
-                  <caret line="27" column="5" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
-                  <folding>
-                    <element signature="e#40#54#0#PHP" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/local/app/Http/routes.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-9.153846">
-                  <caret line="23" column="75" selection-start-line="23" selection-start-column="62" selection-end-line="23" selection-end-column="75" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="show.blade.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/local/resources/views/animes/show.blade.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-31.384615">
-                  <caret line="48" column="59" selection-start-line="48" selection-start-column="59" selection-end-line="48" selection-end-column="59" />
-                  <folding>
-                    <element signature="e#1628#1661#0#HTML" expanded="true" />
-                    <element signature="e#3087#3120#0#HTML" expanded="true" />
-                    <element signature="e#4488#4521#0#HTML" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="defaut.blade.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/local/resources/views/defaut.blade.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-21.576923">
-                  <caret line="69" column="99" selection-start-line="69" selection-start-column="99" selection-end-line="69" selection-end-column="99" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="jeuPerso.css" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/style/css/jeuPerso.css">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-19.615385">
-                  <caret line="30" column="19" selection-start-line="30" selection-start-column="19" selection-end-line="30" selection-end-column="19" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="index.blade.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/local/resources/views/animes/index.blade.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-20.576923">
-                  <caret line="32" column="34" selection-start-line="32" selection-start-column="34" selection-end-line="32" selection-end-column="34" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="AnimesController.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/local/app/Http/Controllers/AnimesController.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-46.076923">
-                  <caret line="96" column="10" selection-start-line="96" selection-start-column="10" selection-end-line="96" selection-end-column="10" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="JeuController.php" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/local/app/Http/Controllers/JeuController.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.4383408">
-                  <caret line="40" column="19" selection-start-line="40" selection-start-column="19" selection-end-line="40" selection-end-column="19" />
-                  <folding>
-                    <element signature="e#40#54#0#PHP" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="choixDif.blade.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/local/resources/views/jeuPerso/choixDif.blade.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-20.26923">
-                  <caret line="31" column="18" selection-start-line="31" selection-start-column="18" selection-end-line="31" selection-end-column="18" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="index.blade.php" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/local/resources/views/jeuPerso/index.blade.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.57174885">
-                  <caret line="30" column="55" selection-start-line="30" selection-start-column="55" selection-end-line="30" selection-end-column="55" />
-                  <folding>
-                    <element signature="e#644#674#0#HTML" expanded="true" />
-                    <element signature="e#980#1010#0#HTML" expanded="true" />
-                    <element signature="e#1314#1344#0#HTML" expanded="true" />
-                    <element signature="e#3965#3986#0#HTML" expanded="true" />
-                    <marker date="1462479136200" expanded="true" signature="4280:11191" placeholder="..." />
-                    <marker date="1462479136200" expanded="true" signature="4362:11190" placeholder="..." />
-                    <marker date="1462479136200" expanded="true" signature="4712:5122" placeholder="..." />
-                    <marker date="1462479136200" expanded="true" signature="4732:5121" placeholder="..." />
-                    <marker date="1462479136200" expanded="true" signature="4774:5006" placeholder="..." />
-                    <marker date="1462479136200" expanded="true" signature="5029:5107" placeholder="..." />
-                    <marker date="1462479136200" expanded="true" signature="5157:11179" placeholder="..." />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="JeuLogoController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/local/app/Http/Controllers/JeuLogoController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-17.653847">
+              <caret line="27" column="5" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
+              <folding>
+                <element signature="e#40#54#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".env" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/local/.env">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="27" column="11" selection-start-line="27" selection-start-column="11" selection-end-line="27" selection-end-column="11" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/local/app/Http/routes.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-9.153846">
+              <caret line="23" column="75" selection-start-line="23" selection-start-column="62" selection-end-line="23" selection-end-column="75" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="show.blade.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/local/resources/views/animes/show.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.15246637">
+              <caret line="8" column="35" selection-start-line="8" selection-start-column="35" selection-end-line="8" selection-end-column="35" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/local/resources/views/animes/index.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-23.192308">
+              <caret line="36" column="24" selection-start-line="36" selection-start-column="24" selection-end-line="36" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AnimesController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/local/app/Http/Controllers/AnimesController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-14.384615">
+              <caret line="113" column="13" selection-start-line="113" selection-start-column="13" selection-end-line="113" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="JeuController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/local/app/Http/Controllers/JeuController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-67.0">
+              <caret line="122" column="24" selection-start-line="122" selection-start-column="24" selection-end-line="122" selection-end-column="24" />
+              <folding>
+                <element signature="e#40#54#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -190,7 +133,6 @@
         <option value="$PROJECT_DIR$/local/app/Anime.php" />
         <option value="$PROJECT_DIR$/local/app/Http/Controllers/GenresController.php" />
         <option value="$PROJECT_DIR$/local/database/migrations/2016_05_01_125353_create_table_persos.php" />
-        <option value="$PROJECT_DIR$/local/.env" />
         <option value="$PROJECT_DIR$/local/app/Http/Controllers/JeuLogoController.php" />
         <option value="$PROJECT_DIR$/local/resources/views/jeuLogo/index.blade.php" />
         <option value="$PROJECT_DIR$/local/database/migrations/2016_05_04_105322_add_roles_to_personnages.php" />
@@ -198,15 +140,16 @@
         <option value="$PROJECT_DIR$/local/resources/views/persos/create.blade.php" />
         <option value="$PROJECT_DIR$/local/app/Http/Controllers/PersosController.php" />
         <option value="$PROJECT_DIR$/style/css/jeuPerso.css" />
-        <option value="$PROJECT_DIR$/local/app/Http/Controllers/AnimesController.php" />
         <option value="$PROJECT_DIR$/style/css/stylePerso.css" />
-        <option value="$PROJECT_DIR$/local/resources/views/animes/show.blade.php" />
+        <option value="$PROJECT_DIR$/local/resources/views/jeuPerso/choixDif.blade.php" />
         <option value="$PROJECT_DIR$/local/app/Http/routes.php" />
         <option value="$PROJECT_DIR$/local/resources/views/defaut.blade.php" />
-        <option value="$PROJECT_DIR$/local/resources/views/jeuPerso/choixDif.blade.php" />
-        <option value="$PROJECT_DIR$/local/resources/views/animes/index.blade.php" />
-        <option value="$PROJECT_DIR$/local/resources/views/jeuPerso/index.blade.php" />
         <option value="$PROJECT_DIR$/local/app/Http/Controllers/JeuController.php" />
+        <option value="$PROJECT_DIR$/local/resources/views/jeuPerso/index.blade.php" />
+        <option value="$PROJECT_DIR$/local/resources/views/animes/index.blade.php" />
+        <option value="$PROJECT_DIR$/local/.env" />
+        <option value="$PROJECT_DIR$/local/app/Http/Controllers/AnimesController.php" />
+        <option value="$PROJECT_DIR$/local/resources/views/animes/show.blade.php" />
       </list>
     </option>
   </component>
@@ -594,8 +537,8 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -650,8 +593,8 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="false" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.184375" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -702,17 +645,29 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#644#674#0#HTML" expanded="true" />
-            <element signature="e#980#1010#0#HTML" expanded="true" />
-            <element signature="e#1314#1344#0#HTML" expanded="true" />
-            <element signature="e#3965#3986#0#HTML" expanded="true" />
-            <marker date="1462479136200" expanded="true" signature="4280:11191" placeholder="..." />
-            <marker date="1462479136200" expanded="true" signature="4362:11190" placeholder="..." />
-            <marker date="1462479136200" expanded="true" signature="4712:5122" placeholder="..." />
-            <marker date="1462479136200" expanded="true" signature="4732:5121" placeholder="..." />
-            <marker date="1462479136200" expanded="true" signature="4774:5006" placeholder="..." />
-            <marker date="1462479136200" expanded="true" signature="5029:5107" placeholder="..." />
-            <marker date="1462479136200" expanded="true" signature="5157:11179" placeholder="..." />
+            <element signature="e#2146#2198#0#HTML" expanded="true" />
+            <element signature="e#2266#2330#0#HTML" expanded="true" />
+            <element signature="e#2418#2482#0#HTML" expanded="true" />
+            <element signature="e#3748#3767#0#HTML" expanded="true" />
+            <element signature="e#4128#4149#0#HTML" expanded="true" />
+            <element signature="e#4310#4331#0#HTML" expanded="true" />
+            <marker date="1462822500920" expanded="true" signature="4625:13066" placeholder="..." />
+            <marker date="1462822500920" expanded="true" signature="4843:13065" placeholder="..." />
+            <marker date="1462822500920" expanded="true" signature="6585:6995" placeholder="..." />
+            <marker date="1462822500920" expanded="true" signature="6605:6994" placeholder="..." />
+            <marker date="1462822500920" expanded="true" signature="6647:6879" placeholder="..." />
+            <marker date="1462822500920" expanded="true" signature="6902:6980" placeholder="..." />
+            <marker date="1462822500920" expanded="true" signature="7032:13054" placeholder="..." />
+            <marker date="1462822500920" expanded="true" signature="7053:7950" placeholder="..." />
+            <marker date="1462822500920" expanded="true" signature="8543:12798" placeholder="..." />
+            <marker date="1462822500920" expanded="true" signature="8704:10108" placeholder="..." />
+            <marker date="1462822500920" expanded="true" signature="9685:9785" placeholder="..." />
+            <marker date="1462822500920" expanded="true" signature="10143:12772" placeholder="..." />
+            <marker date="1462822500920" expanded="true" signature="10890:11001" placeholder="..." />
+            <marker date="1462822500920" expanded="true" signature="11051:11321" placeholder="..." />
+            <marker date="1462822500920" expanded="true" signature="11371:11639" placeholder="..." />
+            <marker date="1462822500920" expanded="true" signature="11689:12706" placeholder="..." />
+            <marker date="1462822500920" expanded="true" signature="12847:12974" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -729,7 +684,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="29" column="82" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="82" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -747,7 +701,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="5" column="81" selection-start-line="5" selection-start-column="81" selection-end-line="5" selection-end-column="81" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -763,9 +716,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="21" column="64" selection-start-line="21" selection-start-column="64" selection-end-line="21" selection-end-column="64" />
-          <folding>
-            <element signature="e#7#392#0#PHP" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -773,11 +724,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="18" column="29" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="29" />
-          <folding>
-            <element signature="e#1628#1661#0#HTML" expanded="true" />
-            <element signature="e#3087#3120#0#HTML" expanded="true" />
-            <element signature="e#4488#4521#0#HTML" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -794,17 +741,29 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#644#674#0#HTML" expanded="true" />
-            <element signature="e#980#1010#0#HTML" expanded="true" />
-            <element signature="e#1314#1344#0#HTML" expanded="true" />
-            <element signature="e#3965#3986#0#HTML" expanded="true" />
-            <marker date="1462479136200" expanded="true" signature="4280:11191" placeholder="..." />
-            <marker date="1462479136200" expanded="true" signature="4362:11190" placeholder="..." />
-            <marker date="1462479136200" expanded="true" signature="4712:5122" placeholder="..." />
-            <marker date="1462479136200" expanded="true" signature="4732:5121" placeholder="..." />
-            <marker date="1462479136200" expanded="true" signature="4774:5006" placeholder="..." />
-            <marker date="1462479136200" expanded="true" signature="5029:5107" placeholder="..." />
-            <marker date="1462479136200" expanded="true" signature="5157:11179" placeholder="..." />
+            <element signature="e#2146#2198#0#HTML" expanded="true" />
+            <element signature="e#2266#2330#0#HTML" expanded="true" />
+            <element signature="e#2418#2482#0#HTML" expanded="true" />
+            <element signature="e#3748#3767#0#HTML" expanded="true" />
+            <element signature="e#4128#4149#0#HTML" expanded="true" />
+            <element signature="e#4310#4331#0#HTML" expanded="true" />
+            <marker date="1462822500920" expanded="true" signature="4625:13066" placeholder="..." />
+            <marker date="1462822500920" expanded="true" signature="4843:13065" placeholder="..." />
+            <marker date="1462822500920" expanded="true" signature="6585:6995" placeholder="..." />
+            <marker date="1462822500920" expanded="true" signature="6605:6994" placeholder="..." />
+            <marker date="1462822500920" expanded="true" signature="6647:6879" placeholder="..." />
+            <marker date="1462822500920" expanded="true" signature="6902:6980" placeholder="..." />
+            <marker date="1462822500920" expanded="true" signature="7032:13054" placeholder="..." />
+            <marker date="1462822500920" expanded="true" signature="7053:7950" placeholder="..." />
+            <marker date="1462822500920" expanded="true" signature="8543:12798" placeholder="..." />
+            <marker date="1462822500920" expanded="true" signature="8704:10108" placeholder="..." />
+            <marker date="1462822500920" expanded="true" signature="9685:9785" placeholder="..." />
+            <marker date="1462822500920" expanded="true" signature="10143:12772" placeholder="..." />
+            <marker date="1462822500920" expanded="true" signature="10890:11001" placeholder="..." />
+            <marker date="1462822500920" expanded="true" signature="11051:11321" placeholder="..." />
+            <marker date="1462822500920" expanded="true" signature="11371:11639" placeholder="..." />
+            <marker date="1462822500920" expanded="true" signature="11689:12706" placeholder="..." />
+            <marker date="1462822500920" expanded="true" signature="12847:12974" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -936,13 +895,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/local/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4814815">
-          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/local/database/migrations/2016_05_04_105322_add_roles_to_personnages.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-15.692307">
@@ -991,25 +943,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6345292">
           <caret line="42" column="16" selection-start-line="29" selection-start-column="7" selection-end-line="42" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/style/css/jeuPerso.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-19.615385">
+        <state vertical-scroll-proportion="0.0">
           <caret line="30" column="19" selection-start-line="30" selection-start-column="19" selection-end-line="30" selection-end-column="19" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/local/app/Http/Controllers/JeuLogoController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-17.653847">
-          <caret line="27" column="5" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
-          <folding>
-            <element signature="e#40#54#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1021,19 +962,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/local/app/Http/Controllers/AnimesController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-46.076923">
-          <caret line="96" column="10" selection-start-line="96" selection-start-column="10" selection-end-line="96" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/local/resources/views/jeuLogo/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.15246637">
           <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1045,46 +977,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/local/resources/views/animes/show.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-31.384615">
-          <caret line="48" column="59" selection-start-line="48" selection-start-column="59" selection-end-line="48" selection-end-column="59" />
-          <folding>
-            <element signature="e#1628#1661#0#HTML" expanded="true" />
-            <element signature="e#3087#3120#0#HTML" expanded="true" />
-            <element signature="e#4488#4521#0#HTML" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/local/resources/views/defaut.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-21.576923">
-          <caret line="69" column="99" selection-start-line="69" selection-start-column="99" selection-end-line="69" selection-end-column="99" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/local/resources/views/animes/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-20.576923">
-          <caret line="32" column="34" selection-start-line="32" selection-start-column="34" selection-end-line="32" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/local/app/Http/Controllers/PersosController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5235426">
           <caret line="37" column="171" selection-start-line="37" selection-start-column="171" selection-end-line="37" selection-end-column="171" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/local/resources/views/jeuPerso/choixDif.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-20.26923">
-          <caret line="31" column="18" selection-start-line="31" selection-start-column="18" selection-end-line="31" selection-end-column="18" />
+        <state vertical-scroll-proportion="0.68609864">
+          <caret line="36" column="10" selection-start-line="3" selection-start-column="3" selection-end-line="36" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/local/resources/views/defaut.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.353139">
+          <caret line="68" column="59" selection-start-line="68" selection-start-column="59" selection-end-line="68" selection-end-column="59" />
           <folding />
         </state>
       </provider>
@@ -1099,31 +1010,85 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/local/resources/views/jeuPerso/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.57174885">
-          <caret line="30" column="55" selection-start-line="30" selection-start-column="55" selection-end-line="30" selection-end-column="55" />
+        <state vertical-scroll-proportion="0.27578217">
+          <caret line="56" column="41" selection-start-line="56" selection-start-column="41" selection-end-line="56" selection-end-column="41" />
           <folding>
-            <element signature="e#644#674#0#HTML" expanded="true" />
-            <element signature="e#980#1010#0#HTML" expanded="true" />
-            <element signature="e#1314#1344#0#HTML" expanded="true" />
-            <element signature="e#3965#3986#0#HTML" expanded="true" />
-            <marker date="1462479136200" expanded="true" signature="4280:11191" placeholder="..." />
-            <marker date="1462479136200" expanded="true" signature="4362:11190" placeholder="..." />
-            <marker date="1462479136200" expanded="true" signature="4712:5122" placeholder="..." />
-            <marker date="1462479136200" expanded="true" signature="4732:5121" placeholder="..." />
-            <marker date="1462479136200" expanded="true" signature="4774:5006" placeholder="..." />
-            <marker date="1462479136200" expanded="true" signature="5029:5107" placeholder="..." />
-            <marker date="1462479136200" expanded="true" signature="5157:11179" placeholder="..." />
+            <element signature="e#2146#2198#0#HTML" expanded="true" />
+            <element signature="e#2266#2330#0#HTML" expanded="true" />
+            <element signature="e#2418#2482#0#HTML" expanded="true" />
+            <element signature="e#3748#3767#0#HTML" expanded="true" />
+            <element signature="e#4128#4149#0#HTML" expanded="true" />
+            <element signature="e#4310#4331#0#HTML" expanded="true" />
+            <marker date="1462822500920" expanded="true" signature="4625:13066" placeholder="..." />
+            <marker date="1462822500920" expanded="true" signature="4843:13065" placeholder="..." />
+            <marker date="1462822500920" expanded="true" signature="6585:6995" placeholder="..." />
+            <marker date="1462822500920" expanded="true" signature="6605:6994" placeholder="..." />
+            <marker date="1462822500920" expanded="true" signature="6647:6879" placeholder="..." />
+            <marker date="1462822500920" expanded="true" signature="6902:6980" placeholder="..." />
+            <marker date="1462822500920" expanded="true" signature="7032:13054" placeholder="..." />
+            <marker date="1462822500920" expanded="true" signature="7053:7950" placeholder="..." />
+            <marker date="1462822500920" expanded="true" signature="8543:12798" placeholder="..." />
+            <marker date="1462822500920" expanded="true" signature="8704:10108" placeholder="..." />
+            <marker date="1462822500920" expanded="true" signature="9685:9785" placeholder="..." />
+            <marker date="1462822500920" expanded="true" signature="10143:12772" placeholder="..." />
+            <marker date="1462822500920" expanded="true" signature="10890:11001" placeholder="..." />
+            <marker date="1462822500920" expanded="true" signature="11051:11321" placeholder="..." />
+            <marker date="1462822500920" expanded="true" signature="11371:11639" placeholder="..." />
+            <marker date="1462822500920" expanded="true" signature="11689:12706" placeholder="..." />
+            <marker date="1462822500920" expanded="true" signature="12847:12974" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/local/app/Http/Controllers/JeuLogoController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-17.653847">
+          <caret line="27" column="5" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
+          <folding>
+            <element signature="e#40#54#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/local/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="27" column="11" selection-start-line="27" selection-start-column="11" selection-end-line="27" selection-end-column="11" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/local/app/Http/Controllers/JeuController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4383408">
-          <caret line="40" column="19" selection-start-line="40" selection-start-column="19" selection-end-line="40" selection-end-column="19" />
+        <state vertical-scroll-proportion="-67.0">
+          <caret line="122" column="24" selection-start-line="122" selection-start-column="24" selection-end-line="122" selection-end-column="24" />
           <folding>
             <element signature="e#40#54#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/local/app/Http/Controllers/AnimesController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-14.384615">
+          <caret line="113" column="13" selection-start-line="113" selection-start-column="13" selection-end-line="113" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/local/resources/views/animes/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-23.192308">
+          <caret line="36" column="24" selection-start-line="36" selection-start-column="24" selection-end-line="36" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/local/resources/views/animes/show.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.15246637">
+          <caret line="8" column="35" selection-start-line="8" selection-start-column="35" selection-end-line="8" selection-end-column="35" />
+          <folding />
         </state>
       </provider>
     </entry>

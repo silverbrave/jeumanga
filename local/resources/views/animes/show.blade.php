@@ -5,8 +5,8 @@
 @endsection
 @section('filAriane')
 <ol class="breadcrumb">
-    @foreach($onglets as $onglet)
-    <li><a href="{{url($onglet)}}">{{$onglet}}</a></li>
+    @foreach($url as $key=>$value)
+    <li><a href="{{$value}}">{{$key}}</a></li>
     @endforeach
 </ol>
 @endsection
@@ -19,6 +19,8 @@
         <div class="col-md-3">
             <h3>Informations</h3>
             <p>Année : {{$anime->annee}}</p>
+            <p>Statut : {{$anime->statut}}</p>
+            <p>Nombre d'épisodes : {{$anime->nb_ep}}</p>
             <p>Genres :
             @foreach($toto as $genre)
                 [{{$genre}}]

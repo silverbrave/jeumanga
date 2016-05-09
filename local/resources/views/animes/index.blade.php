@@ -33,7 +33,7 @@
             <div class="col-md-6">
                 <p>Année : {{$anime->annee}}</p>
                 <p>Genres :
-                @foreach($toto as $genre)
+                @foreach($anime->idgenre as $genre)
                 [{{$genre}}]
                 @endforeach
                 </p>

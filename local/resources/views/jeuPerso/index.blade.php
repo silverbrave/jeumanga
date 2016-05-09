@@ -8,36 +8,45 @@
 @endsection
 @section('content')
     <h1>JEU SUR LES PERSONNAGES</h1>
-        <div class="col-md-2">
-            <h3>Difficulté</h3>
-            {!!Form::open(['route'=>'indexJeuPerso','method'=>'GET','id'=>'formDif']) !!}
-        <div class="radio">
-            <label>
-                <img src="{{url('images/persos/naruto.png')}}" alt="" class="img-circle img-responsive img-center" style="width:50px;height:50px">
-                {!!Form::radio('difficulte', 'principal',['class'=>'radio'])!!}
-                Facile
-            </label>
-        </div>
-        <div class="radio">
-            <label>
-                <img src="{{url('images/persos/eishirou.png')}}" alt="" class="img-circle img-responsive img-center" style="width:50px;height:50px">
-                {!!Form::radio('difficulte', 'secondaire',['class'=>'radio'])!!}
-                Moyen
-            </label>
-        </div>
-        <div class="radio">
-            <label>
-                <img src="{{url('images/persos/286632.jpg')}}" alt="" class="img-circle img-responsive img-center" style="width:50px;height:50px">
-                {!!Form::radio('difficulte', 'tertiaire',['class'=>'radio'])!!}
-                Hardcore
-            </label>
-        </div>
-            {!! Form::submit('Valider',['class'=>'btn btn-primary','id'=>'btnValDif'])!!}
+
+    <div class="row">
+        <div class="col-md-9" id="divDifficulte">
+            {!!Form::open(['route'=>'verif','method'=>'GET','id'=>'formDif']) !!}
+            <div class="radio-inline">
+                <label>
+                    <img src="{{url('images/persos/naruto.png')}}" alt="" class="img-circle img-responsive img-center" style="width:220px;height:250px">
+                    {!!Form::radio('difficulte', 'principal',['class'=>'radio'])!!}
+                    <p>Facile</p>
+                </label>
+            </div>
+            <div class="radio-inline">
+                <label>
+                    <img src="{{url('images/persos/eishirou.png')}}" alt="" class="img-circle img-responsive img-center" style="width:220px;height:250px">
+                    {!!Form::radio('difficulte', 'secondaire',['class'=>'radio'])!!}
+                    <p>Moyen</p>
+                </label>
+            </div>
+            <div class="radio-inline">
+                <label>
+                    <img src="{{url('images/persos/286632.jpg')}}" alt="" class="img-circle img-responsive img-center" style="width:220px;height:250px">
+                    {!!Form::radio('difficulte', 'tertiaire',['class'=>'radio'])!!}
+                    <p>Hardcore</p>
+                </label>
+            </div>
+            <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-5">
+                    {!! Form::submit('Valider',['class'=>'btn btn-primary','id'=>'btnValDif'])!!}
+                </div>
+            </div>
+
             {!! Form::close() !!}
         </div>
+    </div>
+
         <div class="col-md-5" id="jeu">
             <h3>Entrez le nom ou le prénom du personnage</h3>
-            <img src="{{url('images/persos/'.$perso['img'])}}" alt="" class="img-responsive" id="imgAnime" style="z-index:1">
+            <img src="{{url('images/persos/'.$perso['img'])}}" alt="" class="img-responsive" id="imgAnime" style="z-index:1;max-width: 240px;max-height: 350px">
             <img src="{{url('images/score/score++.gif')}}" alt="" style="position:absolute;z-index:999;width: 150px;display: none" class="" id="upScore">
             <img src="{{url('images/score/vie--.gif')}}" alt="" style="position:absolute;z-index:999;width: 150px;display: none" class="" id="downVie">
             <div class="form-group" id="divform">
@@ -75,7 +84,6 @@
                 </div>
             </div>
 
-
             <p><a href="{{url('/quizPersos')}}" class="btn btn-danger">Recommencer</a></p>
             <div id="popupconfirmation" title="Titre de la fenêtre" class="modal-dialog modal-sm" style="display: none">
                <p>Voulez vous recommencez la partie?</p>
@@ -90,21 +98,61 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
-            difficulte = $("input[name='difficulte']:checked").val();
+            var nomF= "{{$perso['nom']}}";
+            var prenomF= "{{$perso['prenom']}}";
+            //on cache les div du jeu et du score
+            $('#jeu').hide();
+            $('#score').hide();
+
+
             $('#formDif').on('submit',function(e){
+                var difficulte = $("input[name='difficulte']:checked").val();
                 console.log(difficulte);
+
+             //   console.log(test);
+                $('#divDifficulte').hide();
+                $.ajaxSetup({
+                    header:$('meta[name="_token"]').attr('content')
+                });
+                var token = $("[name=_token]").val();
+                var data = {
+                   "difficulte":difficulte,
+                    "_token":token
+                };
+                var url  ="{{route('indexJeuPerso')}}";
+                console.log(url);
+                $.ajax({
+                    type:"GET",
+                    url: url,
+                    data:data,
+                    dataType: 'json',
+                    success: function(data){
+                        console.log("success au choix dif");
+
+                        var anime = data['anime'];
+                        var perso = data['perso'];
+                        nomF=data['perso'].nom;
+                        prenomF=data['perso'].prenom;
+                        var imag = "{{url('images/persos/')}}"+'/'+data['perso'].img;
+                        $("#imgAnime").attr("src",imag);
+                        $('#jeu').show();
+                        $('#score').show();
+                    },
+                    error: function(data){
+                        console.log("echec");
+                        // console.log(data[0]);
+                    }
+                });
+                e.preventDefault(e);
+
             });
 
 
 
-
-
-
-            var nomF= "{{$perso['nom']}}";
-            var prenomF= "{{$perso['prenom']}}";
-
             //a changer si on veut desactiver le bouton valider
             $('#btnValider').prop("disabled",false);
+
+
             $('#nom').on('change',function(){
                 if($('#nom').val()===""){
                     $("#divform").attr("class",'form-group has-error');
@@ -115,6 +163,8 @@
                     $('#btnValider').prop("disabled",false);
                 }
             });
+
+
 
             $('#formPerso').on('submit',function(e){
 

@@ -28,9 +28,10 @@ class AnimesController extends Controller
                 $genre= implode($genre);
                 array_push($toto,$genre);
             }
+            $anime->idgenre = $toto;
         }
 
-        return view('animes.index',compact('animes','toto'));
+        return view('animes.index',compact('animes'));
     }
 
     public function create(){
@@ -91,8 +92,27 @@ class AnimesController extends Controller
         $url= $_SERVER['REQUEST_URI'];
         $onglets = explode('/',$url);
        $onglets= array_splice($onglets,1,count($onglets));
-      // $onglets[0]="Accueil";
-       //    dd($onglets);
+       $onglets[0]="Accueil";
+        $url=[];
+      foreach($onglets as $onglet){
+          if(strcasecmp($onglet,"Accueil")==0){
+              $tmp = url('/');
+            //  array_push($url,$tmp);
+            $url['Accueil'] = $tmp;
+          }
+          else if(strcasecmp($onglet,"animes")==0){
+              $tmp = url('/animes');
+             // array_push($url,$tmp);
+              $url['animes'] = $tmp;
+          }
+            else{
+                $tmp = url('/animes/'.$onglet);
+               // array_push($url,$tmp);
+                $url[$onglet] = $tmp;
+            }
+      }
+           // dd($url);
+         //  dd(json_encode($url));
 
         //traitements pour les differents genres d'un anime
         $genres = $anime->idgenre;
@@ -106,7 +126,7 @@ class AnimesController extends Controller
             array_push($toto,$genre);
         }
 
-        return(view('animes.show',compact('anime','persos','onglets','toto')));
+        return(view('animes.show',compact('anime','persos','url','toto')));
     }
 
     public function destroy($id)

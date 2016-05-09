@@ -19,26 +19,47 @@ class JeuController extends Controller
     public $tabPersoDejaVu=array();
 
     public function getRandomPerso(){
-        $anime =Anime::orderByRaw("RAND()")->first();
-       // $anime=Anime::all()->random(1);
-        $anime =$anime->getAttributes();
-        //pour avoir un element d'anime utilisez la notation ci dessous
-       // dd($anime['id']);
-        $perso=Personnage::orderByRaw("RAND()")->where('idAnime',$anime['id'])->first();
-        $perso = $perso->getAttributes();
+        $dif = Input::get('difficulte');
+
+        if(isset($dif)){
+            dd($dif);
+            $anime =Anime::orderByRaw("RAND()")->first();
+            // $anime=Anime::all()->random(1);
+            $anime =$anime->getAttributes();
+            //pour avoir un element d'anime utilisez la notation ci dessous
+            // dd($anime['id']);
+            $perso=Personnage::orderByRaw("RAND()")->where('idAnime',$anime['id'])->where('role',$dif)->first();
+            $tab=compact('anime','perso');
+            $anime = $tab['anime'];
+            $perso = $tab['perso'];
+        }else{
+            $anime =Anime::orderByRaw("RAND()")->first();
+            // $anime=Anime::all()->random(1);
+            $anime =$anime->getAttributes();
+            //pour avoir un element d'anime utilisez la notation ci dessous
+            // dd($anime['id']);
+            $perso=Personnage::orderByRaw("RAND()")->where('idAnime',$anime['id'])->first();
+            $perso = $perso->getAttributes();
+        }
+
          return compact('anime','perso');
     }
 
+    //inutile a mon avis
  public function getRandomPersoDif($dif){
+
         $anime =Anime::orderByRaw("RAND()")->first();
        // $anime=Anime::all()->random(1);
         $anime =$anime->getAttributes();
         //pour avoir un element d'anime utilisez la notation ci dessous
        // dd($anime['id']);
 
-        $perso=Personnage::orderByRaw("RAND()")->where('idAnime',$anime['id'])->where('role',$dif)->first();
-      //  $perso = $perso->getAttributes();
-        dd($perso);
+     $perso=Personnage::orderByRaw("RAND()")->where('role',$dif)->first();
+     $anime =  DB::table('animes')->where('id',$perso['idAnime'])->first();
+     //dd($anime);
+    if(empty($perso)){
+        $this->getRandomPersoDif($dif);
+    }
          return compact('anime','perso');
     }
 
@@ -46,19 +67,21 @@ class JeuController extends Controller
     public function index(){
         $dif=Input::get('difficulte');
         if(isset($dif)){
-            //dd($dif);
+           // dd($dif);
             $tab=$this->getRandomPersoDif($dif);
             $anime = $tab['anime'];
             $perso = $tab['perso'];
          //   Session::put('persoDejaVu',[]);
+            return compact('anime','perso');
         }else{
             $tab=$this->getRandomPerso();
             $anime = $tab['anime'];
             $perso = $tab['perso'];
             Session::put('persoDejaVu',[]);
+            return view('jeuPerso.index',compact('anime','perso'));
         }
         //$_SESSION['persoDejaVu']=[];
-        return view('jeuPerso.index',compact('anime','perso'));
+
     }
 
       public function indexDif(){
