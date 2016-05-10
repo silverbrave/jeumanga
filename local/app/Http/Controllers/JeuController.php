@@ -84,16 +84,13 @@ class JeuController extends Controller
 
     }
 
-      public function indexDif(){
-        return view('jeuPerso.choixDif');
-    }
-
 
 
     public function verifNom(Request $request){
-       //dd($request->all());
+     //  dd($request->all());
         //dd(Session::get('persoDejaVu'));
 
+        $difficulte = $request->get('difficulte');
         $nomRentrer = $request->get('nom');
 
         $prenomRef = $request->get('prenomPerso');
@@ -112,7 +109,7 @@ class JeuController extends Controller
            //dd(Session::get('persoDejaVu'));
 
             //on cherche un nouveau perso
-            $tab=$this->getRandomPerso();
+            $tab=$this->getRandomPersoDif($difficulte);
             $anime = $tab['anime'];
             $perso = $tab['perso'];
 

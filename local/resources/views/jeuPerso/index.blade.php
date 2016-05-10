@@ -88,8 +88,8 @@
             <div id="popupconfirmation" title="Titre de la fenêtre" class="modal-dialog modal-sm" style="display: none">
                <p>Voulez vous recommencez la partie?</p>
             </div>
-      <div id="popupDif" title="Titre de la fenêtre" class="modal-dialog modal-sm" style="display: none">
-               <p>Choisir difficulté</p>
+      <div id="popupwin" title="Titre de la fenêtre" class="modal-dialog modal-sm" style="display: none">
+               <p>GG, La partie est terminée, recommence avec une autre difficulté!</p>
             </div>
         </div>
 @endsection
@@ -103,10 +103,11 @@
             //on cache les div du jeu et du score
             $('#jeu').hide();
             $('#score').hide();
-
+            dif=null;
 
             $('#formDif').on('submit',function(e){
                 var difficulte = $("input[name='difficulte']:checked").val();
+                dif=difficulte;
                 console.log(difficulte);
 
              //   console.log(test);
@@ -195,6 +196,7 @@
                         "prenomPerso":prenomRef,
                         "nomRef":nomRef,
                         "anime":anime,
+                        "difficulte":dif,
                         "_token":token
                     };
                     var url  = $(this).attr('action');
@@ -227,7 +229,24 @@
 
 
                                 if(score===5 && vie > 0){
-                                    alert("GG, Partie terminée!");
+                                    var targetUrl = "{{url('/quizPersos')}}";
+                                    $('#btnValider').prop("disabled", true);
+                                    $('#nom').prop("disabled", true);
+                                  //  $('#barreVie').attr('style',"width:0");
+                                    $( "#popupwin" ).dialog({
+                                        modal: true,
+                                        buttons: {
+                                            "Oui": function() {
+                                                window.location.href=targetUrl;
+                                                $( this ).dialog( "close" );
+                                            },
+                                            "Non": function() {
+
+                                                $( this ).dialog( "close" );
+                                            }
+                                        }
+                                    });
+                                    //alert("GG, Partie terminée!");
                                 }
                                 $('#valScore').text(score);
                                 $('#msgErreur').text("Bien joué! Place au personnage suivant");
@@ -266,7 +285,7 @@
                                     $('#nom').prop("disabled", true);
                                     $('#barreVie').attr('style',"width:0");
 
-                                        var targetUrl = "{{url('/quizPersos')}}";
+                                        targetUrl = "{{url('/quizPersos')}}";
 
                                     $( "#popupconfirmation" ).dialog({
                                         modal: true,

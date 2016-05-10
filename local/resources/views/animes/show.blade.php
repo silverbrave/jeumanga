@@ -4,7 +4,7 @@
     <link href="{{url('style/css/round-about.css')}}" rel="stylesheet">
 @endsection
 @section('filAriane')
-<ol class="breadcrumb">
+<ol class="breadcrumb" style="margin-top: 20px">
     @foreach($url as $key=>$value)
     <li><a href="{{$value}}">{{$key}}</a></li>
     @endforeach

@@ -111,8 +111,7 @@ class AnimesController extends Controller
                 $url[$onglet] = $tmp;
             }
       }
-           // dd($url);
-         //  dd(json_encode($url));
+
 
         //traitements pour les differents genres d'un anime
         $genres = $anime->idgenre;
