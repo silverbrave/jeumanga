@@ -16,6 +16,7 @@
 
     <!-- Custom CSS -->
     <link href="{{url('style/css/logo-nav.css')}}" rel="stylesheet">
+    <link href="{{url('style/css/footer.css')}}" rel="stylesheet">
     @yield('css')
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -46,7 +47,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-
+                    <li><a href="{{url('/')}}"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
                 @if(Illuminate\Support\Facades\Auth::check())
                     <li>
                         <a href="{{url('/logout')}}">Se deconnecter</a>
@@ -66,8 +67,9 @@
                 <li class="dropdown">
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">Quiz <b class="caret"></b></a>
                     <ul class="dropdown-menu">
-                        <li><a href="{{route('indexJeuPerso')}}">Quiz Personnages</a></li>
-                        <li><a href="{{url('/quizLogo')}}">Quiz Logo</a></li>
+                        <li><a href="{{route('indexJeuAnime')}}">Animes</a></li>
+                        <li><a href="{{route('indexJeuPerso')}}">Personnages</a></li>
+                        <li><a href="{{url('/quizLogo')}}">Logo</a></li>
                     </ul>
                 </li>
             </ul>
@@ -91,7 +93,17 @@
 </div>
 
 <!-- /.container -->
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <p>
+               Animes : {{$nbAnime or 0}}
+            </p>
+        </div>
 
+
+    </div>
+</footer>
 <!-- jQuery -->
 <script src="{{url('style/js/jquery.js')}}"></script>
     @yield('script')

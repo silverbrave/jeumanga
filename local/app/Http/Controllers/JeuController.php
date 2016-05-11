@@ -16,7 +16,7 @@ class JeuController extends Controller
 {
 
     //public $tabPersoDejaVu=array(array());
-    public $tabPersoDejaVu=array();
+    //public $tabPersoDejaVu=array();
 
     public function getRandomPerso(){
         $dif = Input::get('difficulte');

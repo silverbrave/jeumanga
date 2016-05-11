@@ -7,7 +7,7 @@
 @section('content')
 <h1>Les animes</h1>
 @if (Illuminate\Support\Facades\Auth::check())
-    <p><a class="btn btn-primary" href="{{ route('animes.create') }}">Ajouter un Anime</a></p>
+    <p><a class="btn btn-primary" href="{{ route('animes.create') }}">Ajouter un Anime <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a></p>
 @endif
     @foreach($animes as $anime)
         <div class="row" style="background-color: #2e6da4;color:white;">
@@ -17,7 +17,7 @@
                 @if (Illuminate\Support\Facades\Auth::check())
                     <div class="col-md-2" style="padding-top:1.5% ">
                         {!! Form::open(array('route' => array('animes.destroy', $anime->id), 'method' => 'delete')) !!}
-                        <button type="submit"  class="btn btn-danger" onclick="return confirm('Etes vous sûr de vouloir supprimer cet anime ?');">Supprimer</button>
+                        <button type="submit"  class="btn btn-danger" onclick="return confirm('Etes vous sûr de vouloir supprimer cet anime ?');">Supprimer <span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
                         {!! Form::close() !!}
                     </div>
                     <div class="col-md-2" style="padding-top:1.5% ">
@@ -27,10 +27,11 @@
 
         </div>
         <div class="row">
-            <div class="col-md-6">
-                <a href="{{url('animes/'.$anime->id)}}" class="lienAnimes"><img src="{{url('images/imgAnime/'.$anime->imgAnime)}}" alt="" class="img-responsive imgAnime"></a>
+            <div class="col-xs-6 col-md-4">
+                <a href="{{url('animes/'.$anime->id)}}" class="lienAnimes"><img src="{{url('images/imgAnime/'.$anime->imgAnime)}}" alt="" class="img-thumbnail imgAnime"></a>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-1"></div>
+            <div class="col-md-7">
                 <p>Année : {{$anime->annee}}</p>
                 <p>Genres :
                 @foreach($anime->idgenre as $genre)

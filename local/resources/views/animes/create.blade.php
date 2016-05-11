@@ -27,33 +27,50 @@
                                     </span>
             @endif
         </div>
-         <div class="form-group{{ $errors->has('statut') ? ' has-error' : '' }}">
-            {!!Form::label('label', 'Statut') !!}
-             {!! Form::select('statut',['En cours' => 'En cours','Terminer'=>'Terminer'], null, ['class' => 'form-control','id'=>'statut']) !!}
-            @if ($errors->has('statut'))
-            <span class="help-block">
+        <div class="col-md-6">
+            <div class="form-group{{ $errors->has('statut') ? ' has-error' : '' }}">
+                {!!Form::label('label', 'Statut') !!}
+                {!! Form::select('statut',['En cours' => 'En cours','Terminer'=>'Terminer'], null, ['class' => 'form-control','id'=>'statut']) !!}
+                @if ($errors->has('statut'))
+                    <span class="help-block">
                 <strong>{{ $errors->first('statut') }}</strong>
             </span>
-            @endif
-                </div>
+                @endif
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group{{ $errors->has('difficulte') ? ' has-error' : '' }}">
+                {!!Form::label('label', 'Notoriété') !!}
+                {!! Form::select('difficulte',['facile' => 'Très connu','moyen'=>'Connu','difficile'=>'Peu ou pas connu'], null, ['class' => 'form-control','id'=>'difficulte']) !!}
+                @if ($errors->has('difficulte'))
+                    <span class="help-block">
+                <strong>{{ $errors->first('difficulte') }}</strong>
+            </span>
+                @endif
+            </div>
+        </div>
 
-         <div class="form-group{{ $errors->has('nb_ep') ? ' has-error' : '' }}">
-            {!!Form::label('label', 'Nombre d episodes') !!}
-            {!!Form::text('nb_ep', null, ['class' => 'form-control','id' =>'nb_ep']) !!}
-            @if ($errors->has('nb_ep'))
-                <span class="help-block">
+        <div class="col-md-6">
+            <div class="form-group{{ $errors->has('nb_ep') ? ' has-error' : '' }}">
+                {!!Form::label('label', "Nombre d'épisodes") !!}
+                {!!Form::text('nb_ep', null, ['class' => 'form-control','id' =>'nb_ep']) !!}
+                @if ($errors->has('nb_ep'))
+                    <span class="help-block">
                                         <strong>{{ $errors->first('nb_ep') }}</strong>
                                     </span>
-            @endif
+                @endif
+            </div>
         </div>
-        <div class="form-group{{ $errors->has('annee') ? ' has-error' : '' }}">
-            {!!Form::label('label', 'Annee') !!}
-            {!!Form::text('annee', null, ['class' => 'form-control','id' =>'annee']) !!}
-            @if ($errors->has('annee'))
-                <span class="help-block">
+        <div class="col-md-6">
+            <div class="form-group{{ $errors->has('annee') ? ' has-error' : '' }}">
+                {!!Form::label('label', 'Année') !!}
+                {!!Form::text('annee', null, ['class' => 'form-control','id' =>'annee']) !!}
+                @if ($errors->has('annee'))
+                    <span class="help-block">
                                         <strong>{{ $errors->first('annee') }}</strong>
                                     </span>
-            @endif
+                @endif
+            </div>
         </div>
 
         <div class="form-group{{ $errors->has('synopsis') ? ' has-error' : '' }}">

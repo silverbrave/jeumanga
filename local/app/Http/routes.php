@@ -13,16 +13,15 @@
 
 
 
-Route::get('/', function () {
-    return view('defaut');
-});
+Route::get('/',['as'=>'accueil','uses'=>'AnimesController@accueil']);
 
 Route::auth();
 Route::resource('animes','AnimesController');
 Route::resource('genres','GenresController');
 Route::resource('personnages','PersosController');
 Route::get('quizPersos',['uses'=>'JeuController@index','as'=>'indexJeuPerso']);
-//Route::get('quizPersos/',['uses'=>'JeuController@getRandomPerso','as'=>'indexJeuPersoChoix']);
+Route::get('quizAnimes',['uses'=>'JeuAnimesController@index','as'=>'indexJeuAnime']);
+Route::post('quizAnimes/',['as'=>'verifAnime','uses'=>'JeuAnimesController@verifAnime']);
 Route::post('quizPersos/',['as'=>'verif','uses'=>'JeuController@verifNom']);
 Route::get('quizLogo',['uses'=>'JeuLogoController@index','as'=>'indexJeuLogo']);
 Route::post('quizLogo/',['as'=>'verifLogo','uses'=>'JeuLogoController@verifNomLogo']);

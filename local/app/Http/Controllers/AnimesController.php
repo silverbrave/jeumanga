@@ -33,6 +33,14 @@ class AnimesController extends Controller
 
         return view('animes.index',compact('animes'));
     }
+    public function accueil(){
+        $anime =Anime::orderByRaw("RAND()")->first();
+
+        $anime =$anime->getAttributes();
+        $nbAnime = DB::table('animes')->count();
+        //dd($nbAnime);
+        return view('index',compact('anime','nbAnime'));
+    }
 
     public function create(){
         $genres= Genre::lists('nom', 'id');
@@ -57,7 +65,7 @@ class AnimesController extends Controller
             else{
                 $imgNameBis='troll2.png';
             }
-            if (Anime::create(['nom' => $nom, 'nb_ep' =>$request->get('nb_ep'), 'synopsis' => $request->get('synopsis'), 'imgAnime' => $imgName, 'logo' => $imgNameBis,'op'=> "",'idgenre'=> $genres,'annee'=>$annee,'statut'=>$request->get('statut')])) {
+            if (Anime::create(['nom' => $nom, 'nb_ep' =>$request->get('nb_ep'), 'synopsis' => $request->get('synopsis'), 'imgAnime' => $imgName, 'logo' => $imgNameBis,'op'=> "",'idgenre'=> $genres,'annee'=>$annee,'statut'=>$request->get('statut'),'difficulte'=>$request->get('difficulte')])) {
                 Session::flash('flash_message', "L'Anime a bien été créé!");
                     return redirect(route('animes.index'));
                 } else {
@@ -97,17 +105,14 @@ class AnimesController extends Controller
       foreach($onglets as $onglet){
           if(strcasecmp($onglet,"Accueil")==0){
               $tmp = url('/');
-            //  array_push($url,$tmp);
             $url['Accueil'] = $tmp;
           }
           else if(strcasecmp($onglet,"animes")==0){
               $tmp = url('/animes');
-             // array_push($url,$tmp);
               $url['animes'] = $tmp;
           }
             else{
                 $tmp = url('/animes/'.$onglet);
-               // array_push($url,$tmp);
                 $url[$onglet] = $tmp;
             }
       }
