@@ -34,12 +34,12 @@
             <p style="text-align: justify">{{$anime->synopsis}}</p>
         </div>
     </div>
-
+    @if (Illuminate\Support\Facades\Auth::check())
     {!! Form::open(['route' => ['personnages.create', $anime->id], 'method' => 'get']) !!}
     {!! Form::hidden('idAnime', $anime->id) !!}
     <button type="submit" class="btn btn-primary">Ajouter un personnage</button>
     {!! Form::close() !!}<br>
-
+    @endif
 
         <div class="col-lg-12">
             <h2>Les personnages</h2>
@@ -61,7 +61,10 @@
                             {!! Form::close() !!}
                         </div>
                         <div class="col-md-4" style="padding-top:1.5% ">
-                            <a class="btn btn-warning" href="{{route('personnages.edit',$perso->id)}}">Modifier <span class="glyphicon glyphicon-edit"></span></a>
+                            {!! Form::open(array('route' => array('personnages.edit', $perso->id), 'method' => 'get')) !!}
+                            {!! Form::hidden('idAnime', $anime->id) !!}
+                            <button type="submit"  class="btn btn-warning" >Modifier  <span class="glyphicon glyphicon-edit"></span></button>
+                            {!! Form::close() !!}
                         </div>
                     @endif
                 </div>

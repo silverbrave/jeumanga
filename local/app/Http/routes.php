@@ -16,6 +16,7 @@
 Route::get('/',['as'=>'accueil','uses'=>'AnimesController@accueil']);
 
 Route::auth();
+Route::post('animes/{rech?}',['uses'=>'AnimesController@rechAnime','as'=>'tri']);
 Route::resource('animes','AnimesController');
 Route::resource('genres','GenresController');
 Route::resource('personnages','PersosController');

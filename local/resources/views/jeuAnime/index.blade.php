@@ -131,9 +131,9 @@
 
                         var anime = data['anime'];
                         var perso = data['perso'];
-                        nomF=data['perso'].nom;
+                        nomF=data['nom'];
                        // prenomF=data['perso'].prenom;
-                        var imag = "{{url('images/persos/')}}"+'/'+data['perso'].img;
+                        var imag = "{{url('images/imgAnime/')}}"+'/'+data['imgAnime'];
                         $("#imgAnime").attr("src",imag);
                         $('#jeu').show();
                         $('#score').show();
@@ -171,19 +171,16 @@
                 var score = $('#valScore').text();
                 var vie = $('#valVie').text();
 //le probleme est ici vu qu'on utilise les var pghp
-                var nomPersoRentre = $('#nom').val();
-                nomPersoRentre = nomPersoRentre.toLowerCase();
-                console.log('nom du perso rentre : '+nomPersoRentre);
+                var nomAnimeRentre = $('#nom').val();
+                nomAnimeRentre = nomAnimeRentre.toLowerCase();
+                console.log('nom du perso rentre : '+nomAnimeRentre);
 
                 var nomRef = nomF;
                 nomRef = nomRef.toLowerCase();
                 console.log('nom du peros ref : '+nomRef);
 
              //   var prenomRef = prenomF;
-                prenomRef= prenomRef.toLowerCase();
-                console.log('prenom du peros ref : '+prenomRef);
 
-                var anime = "{{$anime['nom']}}";
                 var token = $("[name=_token]").val();
                 //console.log(token);
                 $.ajaxSetup({
@@ -191,10 +188,8 @@
                 });
 
                 var data = {
-                    "nom":nomPersoRentre,
-                    "prenomPerso":prenomRef,
+                    "nom":nomAnimeRentre,
                     "nomRef":nomRef,
-                    "anime":anime,
                     "difficulte":dif,
                     "_token":token
                 };
@@ -207,19 +202,18 @@
                     dataType: 'json',
                     success: function(data){
                         console.log("succes");
-                        //console.log(data['win']);
+                     //   console.log(data['win']);
                         if(data['win']==="true"){
                             console.log('win');
-                            var anime = data['anime'];
-                            var perso = data['perso'];
+
                             $('#upScore').show('slow');
                             $('#upScore').hide(500);
-                            nomF=data['perso'].nom;
+                            nomF=data['anime'].nom;
                           //  prenomF=data['perso'].prenom;
 
                             //  console.log(data['perso'].img);
                             //$('#imgAnime').src=data['anime'].imgAnime;
-                            var image = "{{url('images/persos/')}}"+'/'+data['perso'].img;
+                            var image = "{{url('images/imgAnime/')}}"+'/'+data['anime'].imgAnime;
                             // console.log(image);
                             $("#imgAnime").attr("src",image);
                             score=parseInt(score);
@@ -284,7 +278,7 @@
                                 $('#nom').prop("disabled", true);
                                 $('#barreVie').attr('style',"width:0");
 
-                                targetUrl = "{{url('/quizPersos')}}";
+                                targetUrl = "{{url('/quizAnimes')}}";
 
                                 $( "#popupconfirmation" ).dialog({
                                     modal: true,

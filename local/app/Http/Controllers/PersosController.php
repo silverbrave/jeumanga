@@ -53,4 +53,41 @@ class PersosController extends Controller
         return redirect(route('animes.show',$idAnime));
 
     }
+
+    public function edit($id){
+        $perso = Personnage::findOrFail($id);
+        $idAnime= Input::get('idAnime');
+        return view('persos.edit',compact('perso','idAnime'));
+    }
+
+    public function update($id,Request $request){
+        $idAnime = $request->get('idAnime');
+        $perso = Personnage::findOrFail($id);
+       // $perso->update($request->all());
+
+        $nom = ucwords($request->get('nom'));
+        $prenom = ucwords($request->get('prenom'));
+
+        if (Input::hasFile('img')) {
+            $imgName = Input::file('img')->getClientOriginalName();
+
+            if ($perso->update(['idAnime'=> (int)$idAnime,'nom' => $nom, 'prenom' => $prenom, 'img' =>$imgName,'desc' => $request->get('desc'),'role'=>$request->get('role')])) {
+                Input::file('img')->move('images/persos/', $imgName);
+                Session::flash('flash_message', $perso->nom." a bien été modifié!");
+                return redirect(route('animes.show',$idAnime));
+            } else {
+                return redirect(route('personnage.create'))->withInput();
+            }
+        }
+        else{
+            $imgName = 'troll.png';
+            if ($perso->update(['idAnime'=> (int)$idAnime,'nom' => $nom, 'prenom' => $prenom, 'img' =>$imgName,'desc' => $request->get('desc'),'role'=>$request->get('role')])) {
+                Session::flash('flash_message', $perso->nom." a bien été modifié!");
+                return redirect(route('animes.show',$idAnime));
+            } else {
+                return redirect(route('personnage.create'))->withInput();
+            }
+        }
+
+    }
 }

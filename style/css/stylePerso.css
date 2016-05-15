@@ -18,3 +18,10 @@ img.imgAnime{
   width:270px;
   height:230px;
 }
+
+.autocomplete-suggestions{
+  display: block;
+  top: 0;
+  left: 0;
+  width: auto;
+}

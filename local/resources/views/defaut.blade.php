@@ -97,7 +97,8 @@
     <div class="container">
         <div class="row">
             <p>
-               Animes : {{$nbAnime or 0}}
+               Nb d'Animes : {{$stats['nbAnime'] or 0}}
+               Nb d'épisodes : {{$stats['nbEpisode'] or 0}}
             </p>
         </div>
 
