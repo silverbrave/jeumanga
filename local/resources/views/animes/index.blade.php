@@ -75,7 +75,7 @@
                 console.log(valrech);
                 var donn = {"rech":valrech,"_token":token};
                 $.ajax({
-                    type:"POST",
+                    type:"GET",
                     url : "{!! Illuminate\Support\Facades\URL::action('AnimesController@rechAnime')!!}", // on appelle le script JSON
                     dataType : 'json', // on spécifie bien que le type de données est en JSON
                     data :donn,
@@ -94,7 +94,7 @@
                 console.log('item:');
                 console.log(item);
                 console.log('val liste anime');
-                $('#listeAnimes').append(' <div class="row" style="background-color: #2e6da4;color:white;"><div class="col-md-8"><h2><a href="animes/'+item['id']+'" class="lienAnimes">'+item['nom']+'</a></h2></div></div><div class="row"><div class="col-xs-6 col-md-4"><a href="animes/'+item['id']+'" class="lienAnimes"><img src="{{url('images/imgAnime/')}}'+'/'+item['imgAnime']+'" alt="" class="img-thumbnail imgAnime"></a></div><div class="col-md-1"></div><div class="col-md-7"><p>Année :'+item['annee']+'</p><p>Genres :'+item['idgenre']+'</p><p class="synopsis">Synopsis : <br>'+item['synopsis']+'</p></div></div><hr>');
+                $('#listeAnimes').append(' <div class="row" style="background-color: #2e6da4;color:white;"><div class="col-md-8"><h2><a href="animes/'+item['id']+'" class="lienAnimes">'+item['nom']+'</a></h2></div></div><div class="row"><div class="col-xs-6 col-md-4"><a href="animes/'+item['id']+'" class="lienAnimes"><img src="{{url('images/imgAnime/')}}'+'/'+item['imgAnime']+'" alt="" class="img-thumbnail imgAnime"></a></div><div class="col-md-1"></div><div class="col-md-7"><p>Année : '+item['annee']+'</p><p>Genres : '+item['idgenre']+'</p><p class="synopsis">Synopsis : <br>'+item['synopsis']+'</p></div></div><hr>');
                 var re = new RegExp("(" + search.split(' ').join('|') + ")", "gi");
 
                return '';

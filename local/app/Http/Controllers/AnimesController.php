@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Anime;
 use App\Genre;
+use App\News;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -43,11 +44,24 @@ class AnimesController extends Controller
     }
 
     public function rechAnime(){
-      // dd('toto');
+    //   dd('toto');
         $query = "select * from `animes` where `nom` like ? order by `nom`";
-        $search = '%'.$_POST['rech'].'%';
+        $search = '%'.$_GET['rech'].'%';
          //  dd($search);
         $results = DB::select($query , array($search));
+
+        foreach($results as $anime){
+            $genres = $anime->idgenre;
+            $anime->idgenre =  DB::table('genres')->where('id',intval($anime->idgenre))->pluck('nom');
+            $genres = explode(',',$genres);
+            $toto =array();
+            foreach($genres as $genre){
+                $genre = DB::table('genres')->where('id',$genre)->pluck('nom');
+                $genre= implode($genre);
+                array_push($toto,$genre);
+            }
+            $anime->idgenre = $toto;
+        }
        // dd($result);
         return $results;
     }
@@ -58,7 +72,8 @@ class AnimesController extends Controller
         $anime =$anime->getAttributes();
        $stats = $this->getStat();
         //dd($nbAnime);
-        return view('index',compact('anime','stats'));
+        $news = News::all();
+        return view('index',compact('anime','stats','news'));
     }
 
 
@@ -72,11 +87,12 @@ class AnimesController extends Controller
     public function create(){
         $stats=$this->__construct();
         $genres= Genre::lists('nom', 'id');
+        //dd($genres);
         return view('animes.create',compact('genres','stats'));
     }
 
     public function store(Request $request){
-       // dd($request->all());
+      //  dd($request->all());
 
         //validation des infos rentrées ds le formulaire
         $this->validate($request, [
@@ -105,6 +121,9 @@ class AnimesController extends Controller
             }
             if (Anime::create(['nom' => $nom, 'nb_ep' =>$request->get('nb_ep'), 'synopsis' => $request->get('synopsis'), 'imgAnime' => $imgName, 'logo' => $imgNameBis,'op'=> "",'idgenre'=> $genres,'annee'=>$annee,'statut'=>$request->get('statut'),'difficulte'=>$request->get('difficulte')])) {
                 Session::flash('flash_message', "L'Anime a bien été créé!");
+                //on cree une news
+                $idanime = Anime::all()->max('id');
+                News::create(['idAnime'=>$idanime,'titre'=>$nom,'desc'=>"creation de l'anime"]);
                     return redirect(route('animes.index'));
                 } else {
                     return redirect(route('animes.create'))->withInput();
@@ -121,6 +140,8 @@ class AnimesController extends Controller
             }
             if (Anime::create(['nom' => $nom, 'nb_ep' =>$request->get('nb_ep'), 'synopsis' => $request->get('synopsis'), 'imgAnime' => $imgName, 'logo' => $imgNameBis,'op'=> "",'idgenre'=> $genres,'annee'=>$annee,'statut'=>$request->get('statut')])) {
                 Session::flash('flash_message', "L'Anime a bien été créé!");
+                $idanime = Anime::all()->max('id');
+                News::create(['idAnime'=>$idanime,'titre'=>$nom,'desc'=>"creation de l'anime"]);
                 return redirect(route('animes.index'));
             } else {
                 return redirect(route('animes.create'))->withInput();

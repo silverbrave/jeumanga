@@ -1,5 +1,7 @@
 @extends('defaut')
-
+@section('css')
+    <link href="{{url('style/css/chosen.min.css')}}" rel="stylesheet">
+@endsection
 @section('content')
 
 
@@ -18,9 +20,15 @@
         </div>
 
          <div class="form-group{{ $errors->has('idgenre') ? ' has-error' : '' }}">
-            {!!Form::label('label', 'Genre') !!}
-             <p><a class="btn btn-primary" href="{{ route('genres.create') }}">Ajouter un genre</a></p>
-             {!! Form::select('idgenre[]',$genres,null, ['class' => 'form-control','id'=>'idgenre','multiple' => 'multiple']) !!}
+            {!!Form::label('label', 'Genre(s)') !!}
+
+
+             <select data-placeholder="Choisir les genres..."  class="chosen" multiple="true" style="width:350px;" tabindex="4" id="idgenre" name="idgenre[]">
+            @foreach($genres as $key => $value)
+                <option value="{{$key}}">{{$value}}</option>
+             @endforeach
+             </select>
+             <a class="btn btn-success" href="{{ route('genres.create') }}">  <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
             @if ($errors->has('idgenre'))
                 <span class="help-block">
                                         <strong>{{ $errors->first('idgenre') }}</strong>
@@ -126,7 +134,7 @@
 
 
 @section('script')
-
+    <script src="{{url('style/js/chosen.jquery.min.js')}}"></script>
     <script type="text/javascript">
 
         function readURL(input) {
@@ -151,7 +159,7 @@
                 reader.readAsDataURL(input.files[0]);
             }
         }
-
+        $(".chosen").chosen();
         $("#imgInp").change(function(){
             readURL(this);
         });

@@ -16,9 +16,10 @@
 Route::get('/',['as'=>'accueil','uses'=>'AnimesController@accueil']);
 
 Route::auth();
-Route::post('animes/{rech?}',['uses'=>'AnimesController@rechAnime','as'=>'tri']);
+Route::get('animes/rech',['uses'=>'AnimesController@rechAnime','as'=>'tri']);
 Route::resource('animes','AnimesController');
 Route::resource('genres','GenresController');
+Route::resource('news','NewsController');
 Route::resource('personnages','PersosController');
 Route::get('quizPersos',['uses'=>'JeuController@index','as'=>'indexJeuPerso']);
 Route::get('quizAnimes',['uses'=>'JeuAnimesController@index','as'=>'indexJeuAnime']);
