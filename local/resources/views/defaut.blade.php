@@ -17,6 +17,8 @@
     <!-- Custom CSS -->
     <link href="{{url('style/css/logo-nav.css')}}" rel="stylesheet">
     <link href="{{url('style/css/footer.css')}}" rel="stylesheet">
+    <link href="{{url('style/css/animate.css')}}" rel="stylesheet">
+
     @yield('css')
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -45,14 +47,13 @@
             </a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-animations" data-hover="dropdown" data-animations="fadeInUp fadeInLeft fadeInUp fadeInRight">
             <ul class="nav navbar-nav">
                     <li><a href="{{url('/')}}"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
                 @if(Illuminate\Support\Facades\Auth::check())
                     <li>
                         <a href="{{url('/logout')}}">Se deconnecter</a>
                     </li>
-
                 @else
                     <li>
                         <a href="{{url('/login')}}">Se connecter</a>
@@ -65,8 +66,8 @@
                     <a href="{{url('/animes')}}">Animes</a>
                 </li>
                 <li class="dropdown">
-                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">Quiz <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
+                    <a  data-toggle="dropdown" class="dropdown-toggle" href="#" role="button" aria-expanded ="false" data-hover="dropdown">Quiz <b class="caret"></b></a>
+                    <ul class="dropdown-menu dropdownhover-bottom" role="menu">
                         <li><a href="{{route('indexJeuAnime')}}">Animes</a></li>
                         <li><a href="{{route('indexJeuPerso')}}">Personnages</a></li>
                         <li><a href="{{url('/quizLogo')}}">Logo</a></li>
@@ -110,6 +111,7 @@
     @yield('script')
 <!-- Bootstrap Core JavaScript -->
 <script src="{{url('style/js/bootstrap.min.js')}}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-hover-dropdown/2.2.1/bootstrap-hover-dropdown.min.js"></script>
 
 </body>
 

@@ -17,6 +17,7 @@ Route::get('/',['as'=>'accueil','uses'=>'AnimesController@accueil']);
 
 Route::auth();
 Route::get('animes/rech',['uses'=>'AnimesController@rechAnime','as'=>'tri']);
+Route::get('animes/rechGenre',['uses'=>'AnimesController@rechGenre','as'=>'trigenre']);
 Route::resource('animes','AnimesController');
 Route::resource('genres','GenresController');
 Route::resource('news','NewsController');

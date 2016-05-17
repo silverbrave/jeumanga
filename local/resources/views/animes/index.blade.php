@@ -2,6 +2,7 @@
 
 @section('css')
     <link href="{{url('style/css/stylePerso.css')}}" rel="stylesheet">
+    <link href="{{url('style/css/chosen.min.css')}}" rel="stylesheet">
 @endsection
 
 @section('content')
@@ -11,8 +12,24 @@
         {!!Form::text('nom', null, ['class' => 'form-control','id' =>'rechNom','placeholder'=>'Recherche par nom']) !!}
         {!! Form::close() !!}
     </div>
+    <button type="button" class="btn btn-default btn-md" id="btnFiltre">
+        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> de filtres
+    </button>
+</div>
+<div class="row" id="divFiltre" style="background-color: rgba(155,155,155,0.3)">
+    <div class="form-group">
+        {!!Form::open(['method'=>'POST','route' => 'trigenre']) !!}
+        {!!Form::label('label', 'Genre(s)') !!}
+        <select data-placeholder="Choisir les genres..."  class="chosen" multiple="true" style="width:350px;" tabindex="4" id="rechGenre" name="idgenre[]">
+            @foreach($genres as $key => $value)
+                <option value="{{$key}}">{{$value}}</option>
+            @endforeach
+        </select>
+        {!! Form::close() !!}
+    </div>
 
-</div><br>
+</div>
+<br>
 
 @if (Illuminate\Support\Facades\Auth::check())
     <p><a class="btn btn-primary" href="{{ route('animes.create') }}">Ajouter un Anime <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a></p>
@@ -60,12 +77,59 @@
 
 @section('script')
     <script type="text/javascript" src="{{url('style/js/jquery.auto-complete.js')}}"></script>
+    <script src="{{url('style/js/chosen.jquery.min.js')}}"></script>
     <script type="text/javascript">
+        $(document).ready(function(){
+            // On cache le div a afficher :
+            $(".chosen").chosen();
+            $("#divFiltre").hide();
+        });
         $.ajaxSetup({
             header:$('meta[name="_token"]').attr('content')
         });
+        $('#btnFiltre').on('click',function(){
+
+            $('#divFiltre').fadeToggle('fast');
 
 
+        });
+        $('#rechGenre').on('change',function(){
+            $.ajaxSetup({
+                header:$('meta[name="_token"]').attr('content')
+            });
+            var  valrech = $('#rechGenre').val();
+            var token = $("[name=_token]").val();
+            console.log(valrech);
+            console.log("genres");
+            var donn = {"rechGenre":valrech,"_token":token};
+
+
+            $.ajax({
+                type:"GET",
+                url : "{!! Illuminate\Support\Facades\URL::action('AnimesController@rechGenre')!!}", // on appelle le script JSON
+                dataType : 'json', // on spécifie bien que le type de données est en JSON
+                data :donn,
+                success : function(data){
+                    $('#listeAnimes').html('');
+                     console.log('toto les genres');
+                    var i=0;
+                    var n = data.length;
+                    console.log('data:');
+                    console.log(n);
+
+                    for (i;i<n;i++){
+                        var anime = data[i];
+                        console.log(anime['nom']);
+                        $('#listeAnimes').append(' <div class="row" style="background-color: #2e6da4;color:white;"><div class="col-md-8"><h2><a href="animes/'+anime['id']+'" class="lienAnimes">'+anime['nom']+'</a></h2></div></div><div class="row"><div class="col-xs-6 col-md-4"><a href="animes/'+anime['id']+'" class="lienAnimes"><img src="{{url('images/imgAnime/')}}'+'/'+anime['imgAnime']+'" alt="" class="img-thumbnail imgAnime"></a></div><div class="col-md-1"></div><div class="col-md-7"><p>Année : '+anime['annee']+'</p><p>Genres : '+anime['idgenre']+'</p><p class="synopsis">Synopsis : <br>'+anime['synopsis']+'</p></div></div><hr>');
+
+                    }
+                     // console.log(donnee[0]);
+
+                    //  console.log($('#rechNom').val());
+
+                }
+            });
+        });
 
         $('#rechNom').autoComplete({
             minChars:1,

@@ -6,6 +6,7 @@ use App\Anime;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Session;
 
@@ -17,27 +18,34 @@ class JeuAnimesController extends Controller
             //cherche un random anime avec la dif passé en parametre
             $anime=Anime::orderByRaw("RAND()")->where('difficulte',$dif)->first();
             $anime = $anime->getAttributes();
-
+            $animeDejaVu = Session::get('AnimeDejaVu');
+         //   dd($animeDejaVu);
+            $nbAnime =  DB::table('animes')->where('difficulte',$dif)->count();
+        //    dd($nbAnime);
+            $cdt = false;
+            $i=1;
+            while ($i<=$nbAnime && $cdt!=true) {
+                if (in_array($anime['nom'], $animeDejaVu)) {
+                    $anime = Anime::orderByRaw("RAND()")->where('difficulte', $dif)->first();
+                    $anime = $anime->getAttributes();
+                    $i++;
+                }
+                else{
+                    $cdt =true;
+                    Session::push('AnimeDejaVu', $anime['nom']);
+                    return $anime;
+                }
+            }
         }
         else{
             //cherche un random anime sans dif
             $anime =Anime::orderByRaw("RAND()")->first();
             $anime = $anime->getAttributes();
           // dd($anime['nom']);
+            return $anime;
         }
-            $cdt = false;
-            while ($cdt != true) {
-                if (in_array($anime['nom'], $animeDejaVu)) {
-                    $anime = Anime::orderByRaw("RAND()")->where('difficulte', $dif)->first();
-                    $anime = $anime->getAttributes();
-                }
-                else{
-                    $cdt = true;
-                }
-            }
 
-        Session::push('AnimeDejaVu', $anime['nom']);
-        return $anime;
+
     }
 
     public function index(){
@@ -61,9 +69,14 @@ class JeuAnimesController extends Controller
         $nomRentrer = $request->get('nom');
         $nomRef = $request->get('nomRef');
         $win = "false";
+        $anime = Anime::where('nom',$nomRef)->first();
+        $anime =$anime->getAttributes();
+        $tags = $anime['tags'];
 
+        $tags = explode(',',$tags);
+       // dd($tags);
         //condition de victoire
-        if(strcasecmp($nomRef,$nomRentrer)==0){
+        if(strcasecmp($nomRef,$nomRentrer)==0 || in_array($nomRentrer,$tags)){
             $win="true";
             //voir le pb si il n'y a plus d'animes ds la difficulte choisie
             $anime = $this->getRandomAnime($difficulte);

@@ -40,7 +40,9 @@ class AnimesController extends Controller
         }
      $stats=$this->__construct();
      //   dd($stats);
-        return view('animes.index',compact('animes','stats'));
+        $genres= Genre::lists('nom', 'id');
+       // dd($genres);
+        return view('animes.index',compact('animes','stats','genres'));
     }
 
     public function rechAnime(){
@@ -63,6 +65,33 @@ class AnimesController extends Controller
             $anime->idgenre = $toto;
         }
        // dd($result);
+        return $results;
+    }
+
+    public function rechGenre(){
+
+        $search = $_GET['rechGenre'];
+        if($search != ""){
+            $search = implode(",",$search);
+        }
+
+        $search = '%'.$search.'%';
+      //  dd($search);
+        $query = "select * from `animes` where `idgenre` like ? order by `nom`";
+        $results = DB::select($query , array($search));
+        foreach($results as $anime){
+            $genres = $anime->idgenre;
+            $anime->idgenre =  DB::table('genres')->where('id',intval($anime->idgenre))->pluck('nom');
+            $genres = explode(',',$genres);
+            $toto =array();
+            foreach($genres as $genre){
+                $genre = DB::table('genres')->where('id',$genre)->pluck('nom');
+                $genre= implode($genre);
+                array_push($toto,$genre);
+            }
+            $anime->idgenre = $toto;
+        }
+       // dd($results);
         return $results;
     }
 

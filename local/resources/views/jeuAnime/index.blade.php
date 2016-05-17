@@ -44,9 +44,9 @@
         </div>
     </div>
 
-    <div class="col-md-5" id="jeu">
+    <div class="col-md-8" id="jeu">
         <h3>Entrez le nom de l'Anime</h3>
-        <img src="{{url('images/imgAnime/'.$anime['imgAnime'])}}" alt="" class="img-responsive" id="imgAnime" style="z-index:1;max-width: 240px;max-height: 350px">
+        <img src="{{url('images/imgAnime/'.$anime['imgAnime'])}}" alt="" class="img-responsive" id="imgAnime" style="z-index:1;max-width: 500px;max-height: 500px">
         <img src="{{url('images/score/score++.gif')}}" alt="" style="position:absolute;z-index:999;width: 150px;display: none" class="" id="upScore">
         <img src="{{url('images/score/vie--.gif')}}" alt="" style="position:absolute;z-index:999;width: 150px;display: none" class="" id="downVie">
         <div class="form-group" id="divform">
@@ -135,8 +135,8 @@
                        // prenomF=data['perso'].prenom;
                         var imag = "{{url('images/imgAnime/')}}"+'/'+data['imgAnime'];
                         $("#imgAnime").attr("src",imag);
-                        $('#jeu').show();
-                        $('#score').show();
+                        $('#jeu').fadeToggle('fast');
+                        $('#score').fadeToggle('slow');
                     },
                     error: function(data){
                         console.log("echec");
@@ -208,43 +208,54 @@
 
                             $('#upScore').show('slow');
                             $('#upScore').hide(500);
-                            nomF=data['anime'].nom;
-                          //  prenomF=data['perso'].prenom;
-
-                            //  console.log(data['perso'].img);
-                            //$('#imgAnime').src=data['anime'].imgAnime;
-                            var image = "{{url('images/imgAnime/')}}"+'/'+data['anime'].imgAnime;
-                            // console.log(image);
-                            $("#imgAnime").attr("src",image);
-                            score=parseInt(score);
-                            score =score+1;
-                            //console.log(score);
-
-
-                            if(score===5 && vie > 0){
-                                var targetUrl = "{{url('/quizPersos')}}";
+                            if (data.anime===null){
+                                console.log('plus danime');
+                                var im = "{{url('images/score/troll.png')}}";
+                                $("#imgAnime").attr("src",im);
                                 $('#btnValider').prop("disabled", true);
                                 $('#nom').prop("disabled", true);
-                                //  $('#barreVie').attr('style',"width:0");
-                                $( "#popupwin" ).dialog({
-                                    modal: true,
-                                    buttons: {
-                                        "Oui": function() {
-                                            window.location.href=targetUrl;
-                                            $( this ).dialog( "close" );
-                                        },
-                                        "Non": function() {
-
-                                            $( this ).dialog( "close" );
-                                        }
-                                    }
-                                });
-                                //alert("GG, Partie terminée!");
+                                $('#msgErreur').text("Bien joué! Vous avez trouvé tous les animes de cette difficulté, reessayez avec une autre difficulté");
                             }
-                            $('#valScore').text(score);
-                            $('#msgErreur').text("Bien joué! Place au personnage suivant");
-                            $("#divform").attr("class",'form-group has-success');
-                            $('#nom').val("");
+                            else{
+                                nomF=data['anime'].nom;
+                                //  prenomF=data['perso'].prenom;
+
+                                //  console.log(data['perso'].img);
+                                //$('#imgAnime').src=data['anime'].imgAnime;
+                                var image = "{{url('images/imgAnime/')}}"+'/'+data['anime'].imgAnime;
+                                // console.log(image);
+                                $("#imgAnime").attr("src",image);
+                                score=parseInt(score);
+                                score =score+1;
+                                //console.log(score);
+
+
+                                if(score===5 && vie > 0){
+                                    var targetUrl = "{{url('/quizPersos')}}";
+                                    $('#btnValider').prop("disabled", true);
+                                    $('#nom').prop("disabled", true);
+                                    //  $('#barreVie').attr('style',"width:0");
+                                    $( "#popupwin" ).dialog({
+                                        modal: true,
+                                        buttons: {
+                                            "Oui": function() {
+                                                window.location.href=targetUrl;
+                                                $( this ).dialog( "close" );
+                                            },
+                                            "Non": function() {
+
+                                                $( this ).dialog( "close" );
+                                            }
+                                        }
+                                    });
+                                    //alert("GG, Partie terminée!");
+                                }
+                                $('#valScore').text(score);
+                                $('#msgErreur').text("Bien joué! Place à l'anime suivant");
+                                $("#divform").attr("class",'form-group has-success');
+                                $('#nom').val("");
+                            }
+
                         }
                         else{
                             vie=parseInt(vie);
@@ -254,7 +265,7 @@
                             //   console.log(vie);
                             $('#valVie').text(vie);
                             $("#divform").attr("class",'form-group has-error');
-                            $('#msgErreur').text("ce n'est pas le bon personnage");
+                            $('#msgErreur').text("ce n'est pas le bon anime");
                             //var barre =  $('#barreVie').style;
                             //     console.log('styyyyyyyylllle');
                             //     console.log($('#barreVie').attr('style'));

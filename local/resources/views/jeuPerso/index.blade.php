@@ -136,8 +136,8 @@
                         prenomF=data['perso'].prenom;
                         var imag = "{{url('images/persos/')}}"+'/'+data['perso'].img;
                         $("#imgAnime").attr("src",imag);
-                        $('#jeu').show();
-                        $('#score').show();
+                        $('#jeu').fadeToggle('fast');
+                        $('#score').fadeToggle('slow');
                     },
                     error: function(data){
                         console.log("echec");
