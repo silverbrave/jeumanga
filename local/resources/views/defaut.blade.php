@@ -71,6 +71,7 @@
                         <li><a href="{{route('indexJeuAnime')}}">Animes</a></li>
                         <li><a href="{{route('indexJeuPerso')}}">Personnages</a></li>
                         <li><a href="{{url('/quizLogo')}}">Logo</a></li>
+                        <li><a href="{{url('/quizObjet')}}">Objets</a></li>
                     </ul>
                 </li>
             </ul>

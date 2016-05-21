@@ -103,7 +103,7 @@
             //on cache les div du jeu et du score
             $('#jeu').hide();
             $('#score').hide();
-            dif=null;
+            var dif=null;
 
             $('#formDif').on('submit',function(e){
                 var difficulte = $("input[name='difficulte']:checked").val();
@@ -184,7 +184,7 @@
                 prenomRef= prenomRef.toLowerCase();
                 console.log('prenom du peros ref : '+prenomRef);
 
-                var anime = "{{$anime['nom']}}";
+                var anime = "{{$anime->nom}}";
                 var token = $("[name=_token]").val();
                 //console.log(token);
                 $.ajaxSetup({
@@ -209,40 +209,51 @@
                         success: function(data){
                             console.log("succes");
                             //console.log(data['win']);
-                            if(data['win']==="true"){
+                            if(data['win']==="true") {
                                 console.log('win');
                                 var anime = data['anime'];
                                 var perso = data['perso'];
-                                 $('#upScore').show('slow');
+                                $('#upScore').show('slow');
                                 $('#upScore').hide(500);
-                                nomF=data['perso'].nom;
-                                prenomF=data['perso'].prenom;
 
-                              //  console.log(data['perso'].img);
-                               //$('#imgAnime').src=data['anime'].imgAnime;
-                                var image = "{{url('images/persos/')}}"+'/'+data['perso'].img;
-                               // console.log(image);
-                                $("#imgAnime").attr("src",image);
-                                score=parseInt(score);
-                                score =score+1;
+                                if (data.anime === null) {
+                                    console.log('plus danime');
+                                    var im = "{{url('images/score/troll.png')}}";
+                                    $("#imgAnime").attr("src", im);
+                                    $('#btnValider').prop("disabled", true);
+                                    $('#nom').prop("disabled", true);
+                                    $('#msgErreur').text("Bien joué! Vous avez trouvé tous les personnages de cette difficulté, reessayez avec une autre difficulté");
+                                }
+                                else {
+
+                                nomF = data['perso'].nom;
+                                prenomF = data['perso'].prenom;
+
+                                //  console.log(data['perso'].img);
+                                //$('#imgAnime').src=data['anime'].imgAnime;
+                                var image = "{{url('images/persos/')}}" + '/' + data['perso'].img;
+                                // console.log(image);
+                                $("#imgAnime").attr("src", image);
+                                score = parseInt(score);
+                                score = score + 1;
                                 //console.log(score);
 
 
-                                if(score===5 && vie > 0){
+                                if (score === 5 && vie > 0) {
                                     var targetUrl = "{{url('/quizPersos')}}";
                                     $('#btnValider').prop("disabled", true);
                                     $('#nom').prop("disabled", true);
-                                  //  $('#barreVie').attr('style',"width:0");
-                                    $( "#popupwin" ).dialog({
+                                    //  $('#barreVie').attr('style',"width:0");
+                                    $("#popupwin").dialog({
                                         modal: true,
                                         buttons: {
-                                            "Oui": function() {
-                                                window.location.href=targetUrl;
-                                                $( this ).dialog( "close" );
+                                            "Oui": function () {
+                                                window.location.href = targetUrl;
+                                                $(this).dialog("close");
                                             },
-                                            "Non": function() {
+                                            "Non": function () {
 
-                                                $( this ).dialog( "close" );
+                                                $(this).dialog("close");
                                             }
                                         }
                                     });
@@ -250,8 +261,9 @@
                                 }
                                 $('#valScore').text(score);
                                 $('#msgErreur').text("Bien joué! Place au personnage suivant");
-                                $("#divform").attr("class",'form-group has-success');
+                                $("#divform").attr("class", 'form-group has-success');
                                 $('#nom').val("");
+                            }
                             }
                             else{
                                 vie=parseInt(vie);

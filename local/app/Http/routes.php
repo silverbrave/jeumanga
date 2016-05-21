@@ -18,15 +18,17 @@ Route::get('/',['as'=>'accueil','uses'=>'AnimesController@accueil']);
 Route::auth();
 Route::get('animes/rech',['uses'=>'AnimesController@rechAnime','as'=>'tri']);
 Route::get('animes/rechGenre',['uses'=>'AnimesController@rechGenre','as'=>'trigenre']);
+
 Route::resource('animes','AnimesController');
 Route::resource('genres','GenresController');
 Route::resource('news','NewsController');
 Route::resource('personnages','PersosController');
+
 Route::get('quizPersos',['uses'=>'JeuController@index','as'=>'indexJeuPerso']);
 Route::get('quizAnimes',['uses'=>'JeuAnimesController@index','as'=>'indexJeuAnime']);
 Route::post('quizAnimes/',['as'=>'verifAnime','uses'=>'JeuAnimesController@verifAnime']);
 Route::post('quizPersos/',['as'=>'verif','uses'=>'JeuController@verifNom']);
 Route::get('quizLogo',['uses'=>'JeuLogoController@index','as'=>'indexJeuLogo']);
 Route::post('quizLogo/',['as'=>'verifLogo','uses'=>'JeuLogoController@verifNomLogo']);
-
+Route::get('quizObjet',['uses'=>'JeuObjetController@index','as'=>'indexJeuObjet']);
 

@@ -231,7 +231,7 @@
 
 
                                 if(score===5 && vie > 0){
-                                    var targetUrl = "{{url('/quizPersos')}}";
+                                    var targetUrl = "{{url('/quizAnimes')}}";
                                     $('#btnValider').prop("disabled", true);
                                     $('#nom').prop("disabled", true);
                                     //  $('#barreVie').attr('style',"width:0");
