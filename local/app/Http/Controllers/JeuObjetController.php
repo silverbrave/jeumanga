@@ -18,6 +18,7 @@ class JeuObjetController extends Controller
             //cherche un random objet avec la dif passé en parametre
             $objetRef=Anime::orderByRaw("RAND()")->where('difficulte',$dif)->first();
             $objetRef = $objetRef->getAttributes();
+            dd($objetRef);
             $animeDejaVu = Session::get('AnimeDejaVu');
             //   dd($animeDejaVu);
             $nbAnime =  DB::table('animes')->where('difficulte',$dif)->count();
@@ -41,7 +42,8 @@ class JeuObjetController extends Controller
             //cherche un random anime sans dif
             $objetRef =Anime::orderByRaw("RAND()")->first();
             $objetRef = $objetRef->getAttributes();
-            // dd($anime['nom']);
+            $objetRef = $objetRef['objetRef'];
+            dd($objetRef);
             return $objetRef;
         }
 

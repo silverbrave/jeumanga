@@ -43,8 +43,11 @@
             {!! Form::close() !!}
         </div>
     </div>
-
-    <div class="col-md-8" id="jeu">
+    <div class="col-md-2" id="listeAnime">
+        <h3>Animes déjà trouvé</h3>
+        <div id="animeT"></div>
+    </div>
+    <div class="col-md-6" id="jeu">
         <h3>Entrez le nom de l'Anime</h3>
         <img src="{{url('images/imgAnime/'.$anime['imgAnime'])}}" alt="" class="img-responsive" id="imgAnime" style="z-index:1;max-width: 500px;max-height: 500px">
         <img src="{{url('images/score/score++.gif')}}" alt="" style="position:absolute;z-index:999;width: 150px;display: none" class="" id="upScore">
@@ -99,8 +102,10 @@
     <script type="text/javascript">
         $(document).ready(function() {
             var nomF= "{{$anime['nom']}}";
+            var imgF= "{{$anime['imgAnime']}}";
             //on cache les div du jeu et du score
             $('#jeu').hide();
+            $('#listeAnime').hide();
             $('#score').hide();
             dif=null;
 
@@ -132,11 +137,13 @@
                         var anime = data['anime'];
                         var perso = data['perso'];
                         nomF=data['nom'];
+                        imgF = data['imgAnime'];
                        // prenomF=data['perso'].prenom;
                         var imag = "{{url('images/imgAnime/')}}"+'/'+data['imgAnime'];
                         $("#imgAnime").attr("src",imag);
                         $('#jeu').fadeToggle('fast');
                         $('#score').fadeToggle('slow');
+                        $('#listeAnime').fadeToggle('slow');
                     },
                     error: function(data){
                         console.log("echec");
@@ -176,6 +183,7 @@
                 console.log('nom du perso rentre : '+nomAnimeRentre);
 
                 var nomRef = nomF;
+                var imgRef = imgF;
                 nomRef = nomRef.toLowerCase();
                 console.log('nom du peros ref : '+nomRef);
 
@@ -217,6 +225,13 @@
                                 $('#msgErreur').text("Bien joué! Vous avez trouvé tous les animes de cette difficulté, reessayez avec une autre difficulté");
                             }
                             else{
+                                // ajouter le nom de l'ancien anime a la liste animeT
+                                var yolo = '<img src="{{url('images/imgAnime/')}}/'+imgRef+'" class="img-circle" id="logoA">';
+                                $( "#animeT" ).append(yolo+"<p>"+nomRef+"</p>" );
+                               // $('#animeT').add("nomRef");
+
+                                imgF = data['anime'].imgAnime;
+                                console.log(imgF);
                                 nomF=data['anime'].nom;
                                 //  prenomF=data['perso'].prenom;
 
